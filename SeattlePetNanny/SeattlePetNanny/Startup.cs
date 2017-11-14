@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using SeattlePetNanny.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
+using SeattlePetNanny.Models;
 
 namespace SeattlePetNanny
 {
@@ -24,7 +26,16 @@ namespace SeattlePetNanny
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddMvc();
+
+            // This context is derived from IdentityDbContext. This context is responsible for the ASPNET Identity tables in the database. 
+            services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SeattlePetNannyContext")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                   .AddEntityFrameworkStores<ApplicationDbContext>()
+                   .AddDefaultTokenProviders();
 
             services.AddDbContext<SeattlePetNannyContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SeattlePetNannyContext")));
@@ -33,6 +44,10 @@ namespace SeattlePetNanny
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // Change in 2.0, it is all that we need in the middleware to tell the 
+            // application to use identity. 
+            app.UseAuthentication();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
