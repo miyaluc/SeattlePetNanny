@@ -28,7 +28,12 @@ namespace SeattlePetNanny
         {
             // *************
             //services.AddAuthorization(options =>
-            //options.AddPolicy("Admin Only", policy => policy.RequireRole("Administrator")));
+            //options.AddPolicy("Owner", policy => policy.RequireRole("Owner")));
+            services.AddAuthorization(options =>
+            {
+                //options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("EmployeeNumber"));
+                options.AddPolicy("OwnerOnly", policy => policy.RequireClaim("OwnerNumber"));
+            });
             // *************
 
             services.AddMvc();
@@ -64,7 +69,7 @@ namespace SeattlePetNanny
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("REDIRECT/ERROR page");
             });
         }
     }

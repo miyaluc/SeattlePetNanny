@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace SeattlePetNanny.Controllers
 {
-    [AllowAnonymous]
     public class HomeController : Controller
     {
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
-
+        //[Authorize(Roles = "Owner")]
+        [Authorize(Policy = "OwnerOnly")]
         public IActionResult Test()
         {
             return View();

@@ -36,6 +36,8 @@ namespace SeattlePetNanny.Controllers
                 var result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, lvm.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    // ***************
+                    // REDIRECT TO THE USER'S PROFILE ON LOGIN SUCCESS
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -61,17 +63,17 @@ namespace SeattlePetNanny.Controllers
 
                 if (result.Succeeded)
                 {
-                    // adding an Owner claim to each registered user
-                    // user will need the Owner claim to access thier profile
-                    List<Claim> Claims = new List<Claim>();
-                    Claim accountTypeClaim = new Claim(ClaimTypes.Role, "Owner", ClaimValueTypes.String);
-                    Claims.Add(accountTypeClaim);
+                    //// adding an Owner claim to each registered user
+                    //// user will need the Owner claim to access thier profile
+                    //List<Claim> Claims = new List<Claim>();
+                    //Claim accountTypeClaim = new Claim(ClaimTypes.Role, "Owner", ClaimValueTypes.String);
+                    //Claims.Add(accountTypeClaim);
 
-                    var addClaims = await _userManager.AddClaimsAsync(user, Claims);
+                    //var addClaims = await _userManager.AddClaimsAsync(user, Claims);
 
-                    //var addRole = await _userManager.AddClaimAsync(user, (new Claim(ClaimTypes.Role, "Administrator", ClaimValueTypes.String)));
+                    var addRole = await _userManager.AddClaimAsync(user, (new Claim(ClaimTypes.Role, "OwnerOnly", ClaimValueTypes.String)));
 
-                    if (addClaims.Succeeded)
+                    if (addRole.Succeeded)
                     {
                         // AWAIT and see whether user was successfully registered
                         await _signInManager.PasswordSignInAsync(rvm.Email, rvm.Password, false, lockoutOnFailure: false);
