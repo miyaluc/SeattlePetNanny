@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Identity;
 using SeattlePetNanny.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace SeattlePetNanny
 {
@@ -26,6 +27,14 @@ namespace SeattlePetNanny
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // *************
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie("MyCookieLogin", options =>
+                options.AccessDeniedPath = new PathString("/Account/Forbidden/"));
+
+            services.AddAuthorization(options =>
+            options.AddPolicy("Admin Only", policy => policy.RequireRole("Administrator")));
+            // *************
 
             services.AddMvc();
 

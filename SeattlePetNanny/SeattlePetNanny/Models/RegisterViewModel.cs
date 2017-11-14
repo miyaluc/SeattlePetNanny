@@ -15,15 +15,23 @@ namespace SeattlePetNanny.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "You do not meet the password requirements", MinimumLength = 8)]
         [DataType(DataType.Password)]
-        [DisplayName("Password")]
+        [StringLength(20, ErrorMessage = "Please enter a valid password", MinimumLength = 8)]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Your passwords do not match")]
         [Display(Name = "Confirm Password")]
-        [Compare("Password", ErrorMessage = "The passwords do not match!!")]
         public string ConfirmPassword { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime Birthday { get; set; }
+
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
     }
 }
