@@ -33,13 +33,5 @@ namespace SeattlePetNanny.Models
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
-
-        // make this an enum of neighborhoods
-        [Required] 
-        public string Location { get; set; }
-
-        // fix data annotations for a phone #
-        [Required] 
-        public string Phone { get; set; }
     }
 }
