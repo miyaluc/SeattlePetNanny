@@ -15,5 +15,9 @@ namespace SeattlePetNanny.Models
         public int Weight { get; set; }
         public int Temperment { get; set; }
         //public blob Photo { get; set; }
+
+        //public List<Dog> Dog { get; set; }
+
+        public List<ReportCard> ReportCard { get; set; }
     }
 }
