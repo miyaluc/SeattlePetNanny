@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace SeattlePetNanny.Models
 {
-    public class Owner
+    public class Admin
     {
         [Key]
-        public int OwnerID { get; set; }
+        public int AdminID { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         //public blob Photo { get; set; }
-
-        public List<Dog> Dog { get; set; }
     }
 }

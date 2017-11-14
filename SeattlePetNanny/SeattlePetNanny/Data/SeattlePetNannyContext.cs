@@ -17,7 +17,9 @@ namespace SeattlePetNanny.Data
 
         public DbSet<Models.Dog> Dog { get; set; }
 
-        public DbSet<Models.Walker> Walker { get; set; }
+        public DbSet<Models.Worker> Worker { get; set; }
+
+        public DbSet<Models.Admin> Admin { get; set; }
 
         public DbSet<Models.ReportCard> ReportCard { get; set; }
 

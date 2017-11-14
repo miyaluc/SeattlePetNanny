@@ -13,5 +13,7 @@ namespace SeattlePetNanny.Models
         public int DogID { get; set; }
         public int WalkerID { get; set; }
         public string Report { get; set; }
+        public string OwnerNotes { get; set; }
+        public string WorkerNotes { get; set; }
     }
 }
