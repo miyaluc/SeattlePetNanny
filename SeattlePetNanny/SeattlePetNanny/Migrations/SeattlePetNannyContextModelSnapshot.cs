@@ -20,6 +20,24 @@ namespace SeattlePetNanny.Migrations
                 .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("SeattlePetNanny.Models.Admin", b =>
+                {
+                    b.Property<int>("AdminID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Location");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Phone");
+
+                    b.HasKey("AdminID");
+
+                    b.ToTable("Admin");
+                });
+
             modelBuilder.Entity("SeattlePetNanny.Models.Dog", b =>
                 {
                     b.Property<int>("DogID")
@@ -35,6 +53,8 @@ namespace SeattlePetNanny.Migrations
 
                     b.HasKey("DogID");
 
+                    b.HasIndex("OwnerId");
+
                     b.ToTable("Dog");
                 });
 
@@ -43,21 +63,45 @@ namespace SeattlePetNanny.Migrations
                     b.Property<int>("OwnerID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("DogID");
+                    b.Property<int>("AccessFailedCount");
 
-                    b.Property<int?>("DogID1");
+                    b.Property<string>("ConcurrencyStamp");
 
                     b.Property<string>("Email");
 
+                    b.Property<bool>("EmailConfirmed");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("Id");
+
+                    b.Property<string>("LastName");
+
                     b.Property<string>("Location");
 
-                    b.Property<string>("Name");
+                    b.Property<bool>("LockoutEnabled");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("NormalizedEmail");
+
+                    b.Property<string>("NormalizedUserName");
+
+                    b.Property<string>("PasswordHash");
 
                     b.Property<string>("Phone");
 
-                    b.HasKey("OwnerID");
+                    b.Property<string>("PhoneNumber");
 
-                    b.HasIndex("DogID1");
+                    b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<string>("SecurityStamp");
+
+                    b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserName");
+
+                    b.HasKey("OwnerID");
 
                     b.ToTable("Owner");
                 });
@@ -69,9 +113,13 @@ namespace SeattlePetNanny.Migrations
 
                     b.Property<int>("DogID");
 
+                    b.Property<string>("OwnerNotes");
+
                     b.Property<string>("Report");
 
                     b.Property<int>("WorkerID");
+
+                    b.Property<string>("WorkerNotes");
 
                     b.HasKey("ReportCardID");
 
@@ -93,14 +141,15 @@ namespace SeattlePetNanny.Migrations
 
                     b.HasKey("WorkerID");
 
-                    b.ToTable("Walker");
+                    b.ToTable("Worker");
                 });
 
-            modelBuilder.Entity("SeattlePetNanny.Models.Owner", b =>
+            modelBuilder.Entity("SeattlePetNanny.Models.Dog", b =>
                 {
-                    b.HasOne("SeattlePetNanny.Models.Dog", "Dog")
-                        .WithMany()
-                        .HasForeignKey("DogID1");
+                    b.HasOne("SeattlePetNanny.Models.Owner", "Owner")
+                        .WithMany("Dogs")
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

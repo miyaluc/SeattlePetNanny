@@ -10,10 +10,14 @@ namespace SeattlePetNanny.Models
     {
         [Key]
         public int DogID { get; set; }
-        public int OwnerId { get; set; }
         public string Breed { get; set; }
         public int Weight { get; set; }
         public int Temperment { get; set; }
         //public blob Photo { get; set; }
+
+        public int OwnerNumber { get; set; }
+        public Owner Owner { get; set; }
+
+        //public List<ReportCard> ReportCard { get; set; }
     }
 }
