@@ -1,0 +1,33 @@
+﻿@model SeattlePetNanny.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+
+    <div asp-validation-summary="All"></div>
+    <h4>Create Your Account </h4>
+
+    <label asp-for="Email">Email:</label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span> <br /> <br />
+
+    <label asp-for="FirstName">First Name:</label>
+    <input asp-for="FirstName" />
+    <span asp-validation-for="FirstName"></span> <br /> <br />
+
+    <label asp-for="LastName">Last Name:</label>
+    <input asp-for="LastName" />
+    <span asp-validation-for="LastName"></span> <br /> <br />
+
+    <label asp-for="Password">Password:</label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span><br /> <br />
+
+    <label asp-for="ConfirmPassword">Confirm Password:</label>
+    <input asp-for="ConfirmPassword" />
+    <span asp-validation-for="ConfirmPassword"></span><br /> <br />
+
+    <button type="submit">Register</button>
+  </form>
