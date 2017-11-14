@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SeattlePetNanny.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<Owner>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
