@@ -11,9 +11,10 @@ using System;
 namespace SeattlePetNanny.Migrations
 {
     [DbContext(typeof(SeattlePetNannyContext))]
-    partial class SeattlePetNannyContextModelSnapshot : ModelSnapshot
+    [Migration("20171114172509_FixedWorker")]
+    partial class FixedWorker
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
