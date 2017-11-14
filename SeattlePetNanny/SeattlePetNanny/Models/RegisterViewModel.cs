@@ -26,8 +26,8 @@ namespace SeattlePetNanny.Models
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime Birthday { get; set; }
+        //[DataType(DataType.Date)]
+        //public DateTime Birthday { get; set; }
 
         [Required]
         public string FirstName { get; set; }

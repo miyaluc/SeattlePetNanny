@@ -18,7 +18,6 @@ namespace SeattlePetNanny
     public class Startup
     {
         public IConfiguration Configuration { get; }
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,15 +27,14 @@ namespace SeattlePetNanny
         public void ConfigureServices(IServiceCollection services)
         {
             // *************
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie("MyCookieLogin", options =>
-                options.AccessDeniedPath = new PathString("/Account/Forbidden/"));
-
-            services.AddAuthorization(options =>
-            options.AddPolicy("Admin Only", policy => policy.RequireRole("Administrator")));
+            //services.AddAuthorization(options =>
+            //options.AddPolicy("Admin Only", policy => policy.RequireRole("Administrator")));
             // *************
 
             services.AddMvc();
+
+            services.AddDbContext<SeattlePetNannyContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SeattlePetNannyContext")));
 
             // This context is derived from IdentityDbContext. This context is responsible for the ASPNET Identity tables in the database. 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -45,10 +43,8 @@ namespace SeattlePetNanny
             services.AddIdentity<ApplicationUser, IdentityRole>()
                    .AddEntityFrameworkStores<ApplicationDbContext>()
                    .AddDefaultTokenProviders();
-
-            services.AddDbContext<SeattlePetNannyContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SeattlePetNannyContext")));
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

@@ -11,12 +11,12 @@ namespace SeattlePetNanny.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManger;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
-            _userManger = userManager;
+            _userManager = userManager;
             _signInManager = signInManager;
         }
 
@@ -32,7 +32,7 @@ namespace SeattlePetNanny.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, lvm.RememberMe, lockoutOnFailure: true);
+                var result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, lvm.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Home");
@@ -53,35 +53,21 @@ namespace SeattlePetNanny.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = rvm.Email, Email = rvm.Email, FirstName = rvm.FirstName, LastName = rvm.LastName, Birthday = rvm.Birthday };
-                var result = await _userManger.CreateAsync(user, rvm.Password);
+                var user = new ApplicationUser { UserName = rvm.Email, Email = rvm.Email };
+                var result = await _userManager.CreateAsync(user, rvm.Password);
 
                 if (result.Succeeded)
                 {
-                    //Create a list where my claims will be added to
-                    List<Claim> myClaims = new List<Claim>();
+                    // adding a claim to this user
+                    var addRole = await _userManager.AddClaimAsync(user, (new Claim(ClaimTypes.Role, "Administrator", ClaimValueTypes.String)));
 
-                    // claim for the User's role
-                    Claim claim1 = new Claim(ClaimTypes.Name, rvm.FirstName + " " + rvm.LastName, ClaimValueTypes.String);
-                    myClaims.Add(claim1);
-
-                    //Claim for the user's name
-                    Claim claim2 = new Claim(ClaimTypes.Role, "Administrator", ClaimValueTypes.String);
-                    myClaims.Add(claim2);
-
-                    // var addRole = await _userManger.AddClaimAsync(user, (new Claim(ClaimTypes.Role, "Administrator", ClaimValueTypes.String)));
-                    var addClaims = await _userManger.AddClaimsAsync(user, myClaims);
-
-                    // Make sure the claims were successfully added
-                    if (addClaims.Succeeded)
+                    if (addRole.Succeeded)
                     {
+                        // AWAIT and see whether user was successfully registered
                         await _signInManager.PasswordSignInAsync(rvm.Email, rvm.Password, true, lockoutOnFailure: false);
-
                         return RedirectToAction("Index", "Home");
                     }
-
                 }
-
 
             }
             return View();
