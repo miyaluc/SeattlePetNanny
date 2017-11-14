@@ -7,7 +7,7 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
+    <header>
         @if (!User.Identities.Any(u => u.IsAuthenticated))
         {
             <span>Hello Stranger!</span>
@@ -21,7 +21,7 @@
             </span>
 
         }
-    </div>
+    </header>
     <div>
         @RenderBody()
     </div>
