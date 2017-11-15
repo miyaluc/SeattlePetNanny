@@ -40,9 +40,8 @@ namespace SeattlePetNanny.Controllers
                 var result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, lvm.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    // ***************
-                    // REDIRECT TO THE USER'S PROFILE ON LOGIN SUCCESS
-                    return RedirectToAction("Index", "Home");
+                    
+                    return RedirectToAction("ProfilePage", "Account");
                 }
             }
 
@@ -85,13 +84,14 @@ namespace SeattlePetNanny.Controllers
                     //List<Claim> Claims = new List<Claim>();
                     //Claim accountTypeClaim = new Claim(ClaimTypes.Role, "Owner", ClaimValueTypes.String);
                     //Claims.Add(accountTypeClaim);
-
                     //var addClaims = await _userManager.AddClaimsAsync(user, Claims);
 
+                    // Adds a OwnerOnly ROLE to each person who Registers
+                    // This allows then to access thier profile
                     var addRole = await _userManager.AddClaimAsync(user, (new Claim(ClaimTypes.Role, "OwnerOnly", ClaimValueTypes.String)));
 
                     if (addRole.Succeeded)
-                    {
+                        {
                         // AWAIT and see whether user was successfully registered
                         await _signInManager.PasswordSignInAsync(rvm.Email, rvm.Password, false, lockoutOnFailure: false);
                         return RedirectToAction("Index", "Home");
@@ -106,9 +106,19 @@ namespace SeattlePetNanny.Controllers
             return View("Forbidden");
         }
 
+        //****$$$$$$$$$$#############@@@@@@@@@@@ <----
+        // WILL NEED TO ALSO GIVE PERMISSION TO ADMINISTRATOR
+        [Authorize(Roles = "OwnerOnly")]
         public IActionResult ProfilePage()
         {
             return View();
+        }
+
+        //[Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
