@@ -8,10 +8,10 @@ namespace SeattlePetNanny.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<Owner> _userManager;
-        private readonly SignInManager<Owner> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountController(UserManager<Owner> userManager, SignInManager<Owner> signInManager)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -50,7 +50,7 @@ namespace SeattlePetNanny.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new Owner { UserName = rvm.Email, Email = rvm.Email, Location = rvm.Location, Phone = rvm.Phone };
+                var user = new ApplicationUser { UserName = rvm.Email, Email = rvm.Email, Phone = rvm.Phone };
                 var result = await _userManager.CreateAsync(user, rvm.Password);
 
                 if (result.Succeeded)

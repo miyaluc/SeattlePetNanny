@@ -14,7 +14,7 @@ namespace SeattlePetNanny.Models
         public string Location { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        //public blob Photo { get; set; }
-        //public List<DateTime> Schedule { get; set; }
+        // public blob Photo { get; set; }
+        // public List<DateTime> Schedule { get; set; }
     }
 }

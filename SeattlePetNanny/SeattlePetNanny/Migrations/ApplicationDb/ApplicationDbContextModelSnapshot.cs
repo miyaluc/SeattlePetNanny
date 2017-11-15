@@ -128,34 +128,14 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SeattlePetNanny.Models.Dog", b =>
-                {
-                    b.Property<int>("DogID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Breed");
-
-                    b.Property<int>("OwnerId");
-
-                    b.Property<string>("OwnerId1");
-
-                    b.Property<int>("Temperment");
-
-                    b.Property<int>("Weight");
-
-                    b.HasKey("DogID");
-
-                    b.HasIndex("OwnerId1");
-
-                    b.ToTable("Dog");
-                });
-
-            modelBuilder.Entity("SeattlePetNanny.Models.Owner", b =>
+            modelBuilder.Entity("SeattlePetNanny.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AccessFailedCount");
+
+                    b.Property<DateTime>("Birthday");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
@@ -169,8 +149,6 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
 
                     b.Property<string>("LastName");
 
-                    b.Property<string>("Location");
-
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -180,8 +158,6 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256);
-
-                    b.Property<int>("OwnerID");
 
                     b.Property<string>("PasswordHash");
 
@@ -199,8 +175,6 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
-
-                    b.HasAlternateKey("OwnerID");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -223,7 +197,7 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("SeattlePetNanny.Models.Owner")
+                    b.HasOne("SeattlePetNanny.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -231,7 +205,7 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("SeattlePetNanny.Models.Owner")
+                    b.HasOne("SeattlePetNanny.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -244,7 +218,7 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SeattlePetNanny.Models.Owner")
+                    b.HasOne("SeattlePetNanny.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -252,17 +226,10 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("SeattlePetNanny.Models.Owner")
+                    b.HasOne("SeattlePetNanny.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("SeattlePetNanny.Models.Dog", b =>
-                {
-                    b.HasOne("SeattlePetNanny.Models.Owner", "Owner")
-                        .WithMany("Dogs")
-                        .HasForeignKey("OwnerId1");
                 });
 #pragma warning restore 612, 618
         }

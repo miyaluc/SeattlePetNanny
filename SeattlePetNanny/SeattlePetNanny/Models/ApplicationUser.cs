@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SeattlePetNanny.Models
 {
@@ -13,5 +16,8 @@ namespace SeattlePetNanny.Models
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Display(Name = "Phone Number")]
+        public string Phone { get; set; }
+
     }
 }

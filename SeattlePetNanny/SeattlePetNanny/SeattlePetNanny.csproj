@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\ApplicationUser.cs" />
+    <Compile Remove="Migrations\20171114235218_addedApplicationUser.cs" />
+    <Compile Remove="Migrations\20171114235218_addedApplicationUser.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

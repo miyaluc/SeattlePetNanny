@@ -15,6 +15,10 @@ namespace SeattlePetNanny.Models
         public string Email { get; set; }
 
         [Required]
+        [DataType(DataType.PhoneNumber)]
+        public string Phone { get; set; }
+
+        [Required]
         [DataType(DataType.Password)]
         [StringLength(20, ErrorMessage = "Please enter a valid password", MinimumLength = 8)]
         [Display(Name = "Password")]
@@ -33,13 +37,5 @@ namespace SeattlePetNanny.Models
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
-
-        // make this an enum of neighborhoods
-        [Required] 
-        public string Location { get; set; }
-
-        // fix data annotations for a phone #
-        [Required] 
-        public string Phone { get; set; }
     }
 }

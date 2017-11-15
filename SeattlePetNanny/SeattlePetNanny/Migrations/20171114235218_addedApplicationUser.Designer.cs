@@ -11,9 +11,10 @@ using System;
 namespace SeattlePetNanny.Migrations
 {
     [DbContext(typeof(SeattlePetNannyContext))]
-    partial class SeattlePetNannyContextModelSnapshot : ModelSnapshot
+    [Migration("20171114235218_addedApplicationUser")]
+    partial class addedApplicationUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,8 +46,6 @@ namespace SeattlePetNanny.Migrations
 
                     b.Property<string>("Breed");
 
-                    b.Property<int?>("OwnerID");
-
                     b.Property<int>("OwnerNumber");
 
                     b.Property<int>("Temperment");
@@ -55,7 +54,7 @@ namespace SeattlePetNanny.Migrations
 
                     b.HasKey("DogID");
 
-                    b.HasIndex("OwnerID");
+                    b.HasIndex("OwnerNumber");
 
                     b.ToTable("Dog");
                 });
@@ -83,19 +82,17 @@ namespace SeattlePetNanny.Migrations
                     b.Property<int>("ReportCardID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("DogID");
-
-                    b.Property<int>("DogNumber");
+                    b.Property<int>("DogID");
 
                     b.Property<string>("OwnerNotes");
 
                     b.Property<string>("Report");
 
+                    b.Property<int>("WorkerID");
+
                     b.Property<string>("WorkerNotes");
 
                     b.HasKey("ReportCardID");
-
-                    b.HasIndex("DogID");
 
                     b.ToTable("ReportCard");
                 });
@@ -120,16 +117,10 @@ namespace SeattlePetNanny.Migrations
 
             modelBuilder.Entity("SeattlePetNanny.Models.Dog", b =>
                 {
-                    b.HasOne("SeattlePetNanny.Models.Owner")
+                    b.HasOne("SeattlePetNanny.Models.Owner", "Owner")
                         .WithMany("Dogs")
-                        .HasForeignKey("OwnerID");
-                });
-
-            modelBuilder.Entity("SeattlePetNanny.Models.ReportCard", b =>
-                {
-                    b.HasOne("SeattlePetNanny.Models.Dog")
-                        .WithMany("ReportCards")
-                        .HasForeignKey("DogID");
+                        .HasForeignKey("OwnerNumber")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
