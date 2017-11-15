@@ -2,13 +2,38 @@
     Layout = "_Layout";
 }
 
-<h2>Whats is up</h2>
+<style>
+    .servicesRow {
+        text-align: center;
+    }
 
-<a asp-action="Login" asp-controller="Account">Owner Login</a>
-<a asp-action="Register" asp-controller="Account">Owner Register</a>
-<a asp-action="Rates" asp-controller="Home">Rates</a>
-<br /> <br />
-<a asp-action="Test" asp-controller="Home">Test Page</a>
+    .jumbotron{
+        margin-top: 20px;
+    }
+</style>
 
+<div class="jumbotron homeBanner text-center">
+    <h1>Seattle Pet Nanny</h1>
+    <p>Safe, Trustworthy, and Reliable</p>
+</div>
 
+<div class="container services">
+    <div class="row servicesRow">
+        <div class="col-sm-4 col-sm-offset-2 oneOnone">
+            <h3>1 on 1 walks</h3>
+            <p>Best for shy, aggressive, or older dogs.</p>
+            <p><a href="~/Rates">Learn More</a></p>
+        </div>
 
+        <div class="col-sm-4 col-sm-offset-2 packLeader">
+            <h3>Leader Of The Pack</h3>
+            <p>Best for practicing or gaining social skills.</p>
+            <p><a href="~/Rates">Learn More</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron registerBanner text-center">
+    <h2>Sign up for Nanny Sevices Here</h2>
+    <p><a href="~/Account/Register">Start Instantly</a></p>
+</div>
