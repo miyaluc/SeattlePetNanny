@@ -94,5 +94,12 @@ namespace SeattlePetNanny.Controllers
         {
             return View();
         }
+
+        //[Authorize]
+        public IActionResult Logout()
+        {
+            _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
