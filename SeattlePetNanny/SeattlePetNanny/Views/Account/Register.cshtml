@@ -10,12 +10,13 @@
     <h4>Create Your Account </h4>
 
     <label asp-for="Email">Email:</label>
-    <input asp-for="Email" />
+    <input asp-for="Email" placeholder="example@outlook.com" />
     <span asp-validation-for="Email"></span> <br /> <br />
 
     <label asp-for="PhoneNumber">Phone Number:</label>
-    <input asp-for="PhoneNumber" />
-    <span asp-validation-for="PhoneNumber"></span> <br /> <br />
+    <input asp-for="PhoneNumber" placeholder="(###) ###-####"/>
+    <span asp-validation-for="PhoneNumber"></span> 
+    <br /> <br />
 
     <label asp-for="FirstName">First Name:</label>
     <input asp-for="FirstName" />
@@ -29,8 +30,8 @@
     <input asp-for="Birthday" />
     <span asp-validation-for="Birthday"></span> <br /> <br />
 
-    <label asp-for="Address">Address:</label>
-    <input asp-for="Address" />
+    <label asp-for="Address">Street Address:</label>
+    <input asp-for="Address" placeholder="Address, Apt #, zip code"/>
     <span asp-validation-for="Address"></span> <br /> <br />
 
     <label asp-for="Password">Password:</label>
