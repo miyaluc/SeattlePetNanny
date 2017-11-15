@@ -89,5 +89,10 @@ namespace SeattlePetNanny.Controllers
         {
             return View("Forbidden");
         }
+
+        public IActionResult ProfilePage()
+        {
+            return View();
+        }
     }
 }
