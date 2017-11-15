@@ -1,4 +1,6 @@
 ﻿@using System.Security.Claims;
+@using SeattlePetNanny.Models;
+
 <!DOCTYPE html>
 
 <html>
@@ -57,10 +59,9 @@
         {
             <span>
                 Hello, @User.Identities.First(u => u.IsAuthenticated &&
-                u.HasClaim(c => c.Type == ClaimTypes.Name)).FindFirst(ClaimTypes.Name).Value
-                    | Click <a href="~/Account/Logout"> here </a> sign out.
-    
-                </span>
+                u.HasClaim(c => c.Type == ClaimTypes.Name)).FindFirst(ClaimTypes.Name).Value  
+                | Click <a href="~/Account/Logout"> here </a> sign out.
+            </span>
 
         }
 
