@@ -11,8 +11,8 @@ using System;
 namespace SeattlePetNanny.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20171114003428_addingIdentity")]
-    partial class addingIdentity
+    [Migration("20171115023602_RemovedFields")]
+    partial class RemovedFields
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -135,8 +135,6 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AccessFailedCount");
-
-                    b.Property<DateTime>("Birthday");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();

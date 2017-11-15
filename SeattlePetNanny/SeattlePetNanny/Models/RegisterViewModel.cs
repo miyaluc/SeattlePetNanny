@@ -1,22 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SeattlePetNanny.Models
 {
     public class RegisterViewModel
     {
+        // ApplicationUser Properties
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required]
-        [DataType(DataType.PhoneNumber)]
-        public string Phone { get; set; }
+		[Required]
+        [RegularExpression("^[01]?[- .]?\\(?[2-9]\\d{2}\\)?[- .]?\\d{3}[- .]?\\d{4}$",
+        ErrorMessage = "Phone is required and must be properly formatted.")]
+        [Display(Order = 9, Name = "Phone")]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -30,12 +29,15 @@ namespace SeattlePetNanny.Models
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
 
-        //[DataType(DataType.Date)]
-        //public DateTime Birthday { get; set; }
-
+        // Owner properties
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime Birthday { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+        [Required]
+        public string Address { get; set; }
     }
 }
