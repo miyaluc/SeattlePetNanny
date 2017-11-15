@@ -60,7 +60,7 @@
             <span>
                 Hello, @User.Identities.First(u => u.IsAuthenticated &&
                 u.HasClaim(c => c.Type == ClaimTypes.Name)).FindFirst(ClaimTypes.Name).Value  
-                || Click <a href="~/Account/Logout"> here </a> sign out.
+                || Click <a href="~/Account/Logout"> here </a> to sign out.
             </span>
 
         }
