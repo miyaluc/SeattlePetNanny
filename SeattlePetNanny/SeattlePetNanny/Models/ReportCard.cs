@@ -10,8 +10,10 @@ namespace SeattlePetNanny.Models
     {
         [Key]
         public int ReportCardID { get; set; }
-        public int DogID { get; set; }
-        public int WorkerID { get; set; }
         public string Report { get; set; }
+        public string OwnerNotes { get; set; }
+        public string WorkerNotes { get; set; }
+
+        public int DogNumber { get; set; }
     }
 }

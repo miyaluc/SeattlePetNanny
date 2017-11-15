@@ -13,6 +13,10 @@
     <input asp-for="Email" />
     <span asp-validation-for="Email"></span> <br /> <br />
 
+    <label asp-for="Phone">Phone Number:</label>
+    <input asp-for="Phone" />
+    <span asp-validation-for="Phone"></span> <br /> <br />
+
     <label asp-for="FirstName">First Name:</label>
     <input asp-for="FirstName" />
     <span asp-validation-for="FirstName"></span> <br /> <br />
@@ -30,4 +34,7 @@
     <span asp-validation-for="ConfirmPassword"></span><br /> <br />
 
     <button type="submit">Register</button>
+
   </form>
+
+<a asp-action="Index" asp-controller="Home">Return to Home Page.</a>

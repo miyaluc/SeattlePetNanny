@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SeattlePetNanny.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +14,15 @@ namespace SeattlePetNanny.Data
 
         }
 
-        public DbSet<Models.Owner> Owner { get; set; }
+        public DbSet<Owner> Owner { get; set; }
 
-        public DbSet<Models.Dog> Dog { get; set; }
+        public DbSet<Dog> Dog { get; set; }
 
-        public DbSet<Models.Worker> Walker { get; set; }
+        public DbSet<Worker> Worker { get; set; }
 
-        public DbSet<Models.ReportCard> ReportCard { get; set; }
+        public DbSet<Admin> Admin { get; set; }
+
+        public DbSet<ReportCard> ReportCard { get; set; }
 
     }
 }

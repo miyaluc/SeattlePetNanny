@@ -5,7 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Home\Rates.cshtml" />
+    <Compile Remove="Migrations\20171114235218_addedApplicationUser.cs" />
+    <Compile Remove="Migrations\20171114235218_addedApplicationUser.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Test.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>

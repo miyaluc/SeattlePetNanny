@@ -16,8 +16,6 @@ namespace SeattlePetNanny.Models
         public string Phone { get; set; }
         //public blob Photo { get; set; }
 
-        [Required]
-        public int DogID { get; set; }
-        public virtual Dog Dog { get; set; }
+        public List<Dog> Dogs { get; set; }
     }
 }

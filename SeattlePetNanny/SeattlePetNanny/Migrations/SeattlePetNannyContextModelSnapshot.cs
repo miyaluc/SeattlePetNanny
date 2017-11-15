@@ -20,6 +20,24 @@ namespace SeattlePetNanny.Migrations
                 .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("SeattlePetNanny.Models.Admin", b =>
+                {
+                    b.Property<int>("AdminID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Location");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Phone");
+
+                    b.HasKey("AdminID");
+
+                    b.ToTable("Admin");
+                });
+
             modelBuilder.Entity("SeattlePetNanny.Models.Dog", b =>
                 {
                     b.Property<int>("DogID")
@@ -27,13 +45,17 @@ namespace SeattlePetNanny.Migrations
 
                     b.Property<string>("Breed");
 
-                    b.Property<int>("OwnerId");
+                    b.Property<int?>("OwnerID");
+
+                    b.Property<int>("OwnerNumber");
 
                     b.Property<int>("Temperment");
 
                     b.Property<int>("Weight");
 
                     b.HasKey("DogID");
+
+                    b.HasIndex("OwnerID");
 
                     b.ToTable("Dog");
                 });
@@ -42,10 +64,6 @@ namespace SeattlePetNanny.Migrations
                 {
                     b.Property<int>("OwnerID")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<int>("DogID");
-
-                    b.Property<int?>("DogID1");
 
                     b.Property<string>("Email");
 
@@ -57,8 +75,6 @@ namespace SeattlePetNanny.Migrations
 
                     b.HasKey("OwnerID");
 
-                    b.HasIndex("DogID1");
-
                     b.ToTable("Owner");
                 });
 
@@ -67,13 +83,19 @@ namespace SeattlePetNanny.Migrations
                     b.Property<int>("ReportCardID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("DogID");
+                    b.Property<int?>("DogID");
+
+                    b.Property<int>("DogNumber");
+
+                    b.Property<string>("OwnerNotes");
 
                     b.Property<string>("Report");
 
-                    b.Property<int>("WorkerID");
+                    b.Property<string>("WorkerNotes");
 
                     b.HasKey("ReportCardID");
+
+                    b.HasIndex("DogID");
 
                     b.ToTable("ReportCard");
                 });
@@ -93,14 +115,21 @@ namespace SeattlePetNanny.Migrations
 
                     b.HasKey("WorkerID");
 
-                    b.ToTable("Walker");
+                    b.ToTable("Worker");
                 });
 
-            modelBuilder.Entity("SeattlePetNanny.Models.Owner", b =>
+            modelBuilder.Entity("SeattlePetNanny.Models.Dog", b =>
                 {
-                    b.HasOne("SeattlePetNanny.Models.Dog", "Dog")
-                        .WithMany()
-                        .HasForeignKey("DogID1");
+                    b.HasOne("SeattlePetNanny.Models.Owner")
+                        .WithMany("Dogs")
+                        .HasForeignKey("OwnerID");
+                });
+
+            modelBuilder.Entity("SeattlePetNanny.Models.ReportCard", b =>
+                {
+                    b.HasOne("SeattlePetNanny.Models.Dog")
+                        .WithMany("ReportCards")
+                        .HasForeignKey("DogID");
                 });
 #pragma warning restore 612, 618
         }
