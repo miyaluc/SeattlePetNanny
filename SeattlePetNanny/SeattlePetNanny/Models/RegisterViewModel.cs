@@ -28,8 +28,11 @@ namespace SeattlePetNanny.Models
         //public string FirstName { get; set; }
         //[Required]
         //public string LastName { get; set; }
-        [Required]
         //[DataType(DataType.PhoneNumber)]
+        [Required]
+        [RegularExpression("^[01]?[- .]?\\(?[2-9]\\d{2}\\)?[- .]?\\d{3}[- .]?\\d{4}$",
+        ErrorMessage = "Phone is required and must be properly formatted.")]
+        [Display(Order = 9, Name = "Phone")]
         public string PhoneNumber { get; set; }
     }
 }
