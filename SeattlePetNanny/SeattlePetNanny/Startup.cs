@@ -44,7 +44,7 @@ namespace SeattlePetNanny
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SeattlePetNannyContext")));
 
-            services.AddIdentity<Owner, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                    .AddEntityFrameworkStores<ApplicationDbContext>()
                    .AddDefaultTokenProviders();
         }

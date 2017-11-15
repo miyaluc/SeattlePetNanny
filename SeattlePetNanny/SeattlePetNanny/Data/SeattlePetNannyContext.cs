@@ -24,13 +24,5 @@ namespace SeattlePetNanny.Data
 
         public DbSet<ReportCard> ReportCard { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Dog>()
-                .HasOne(p => p.Owner)
-                .WithMany(b => b.Dogs)
-                .HasForeignKey(p => p.OwnerNumber)
-                .HasPrincipalKey(b => b.OwnerID);
-        }
     }
 }

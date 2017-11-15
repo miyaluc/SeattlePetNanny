@@ -16,8 +16,7 @@ namespace SeattlePetNanny.Models
         //public blob Photo { get; set; }
 
         public int OwnerNumber { get; set; }
-        public Owner Owner { get; set; }
 
-        //public List<ReportCard> ReportCard { get; set; }
+        public List<ReportCard> ReportCards { get; set; }
     }
 }
