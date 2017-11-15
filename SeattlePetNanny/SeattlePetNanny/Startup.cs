@@ -26,14 +26,11 @@ namespace SeattlePetNanny
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // *************
-            //services.AddAuthorization(options =>
-            //options.AddPolicy("Owner", policy => policy.RequireRole("Owner")));
+            // Every user who Registers, recieves this policy which gives them access to certain pages
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("OwnerOnly", policy => policy.RequireClaim("OwnerOnly"));
             });
-            // *************
 
             services.AddMvc();
 

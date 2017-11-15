@@ -69,13 +69,14 @@ namespace SeattlePetNanny.Controllers
                     //List<Claim> Claims = new List<Claim>();
                     //Claim accountTypeClaim = new Claim(ClaimTypes.Role, "Owner", ClaimValueTypes.String);
                     //Claims.Add(accountTypeClaim);
-
                     //var addClaims = await _userManager.AddClaimsAsync(user, Claims);
 
+                    // Adds a OwnerOnly ROLE to each person who Registers
+                    // This allows then to access thier profile
                     var addRole = await _userManager.AddClaimAsync(user, (new Claim(ClaimTypes.Role, "OwnerOnly", ClaimValueTypes.String)));
 
                     if (addRole.Succeeded)
-                    {
+                        {
                         // AWAIT and see whether user was successfully registered
                         await _signInManager.PasswordSignInAsync(rvm.Email, rvm.Password, false, lockoutOnFailure: false);
                         return RedirectToAction("Index", "Home");
