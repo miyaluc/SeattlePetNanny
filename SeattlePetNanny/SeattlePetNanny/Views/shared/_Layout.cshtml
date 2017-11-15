@@ -45,17 +45,18 @@
     </div>
     <div>
         @if (!User.Identities.Any(u => u.IsAuthenticated))
-            {
-            <span>Hello!<a href="~/Account/Login"> Login </a> or <a href="~/Account/Register"> Register </a></span>
+        {
+            <span>Hello!<a href="~/Account/Login"> Login </a> or <a href="~/Account/Register"> Register </a> an account</span>
 
         }
         else
         {
             <span>
-                Hello @User.Identities.First(u => u.IsAuthenticated &&
-                  u.HasClaim(c => c.Type == ClaimTypes.Name)).FindFirst(ClaimTypes.Name).Value
-                <a href="~/Account/Logout"> Sign out </a>
-            </span>
+                Hello, @User.Identities.First(u => u.IsAuthenticated &&
+                u.HasClaim(c => c.Type == ClaimTypes.Name)).FindFirst(ClaimTypes.Name).Value
+                    | Click <a href="~/Account/Logout"> here </a> sign out.
+    
+                </span>
 
         }
 

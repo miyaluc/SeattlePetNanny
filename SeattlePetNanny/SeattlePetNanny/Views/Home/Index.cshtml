@@ -7,7 +7,7 @@
         text-align: center;
     }
 
-    .jumbotron{
+    .jumbotron {
         margin-top: 20px;
     }
 </style>
@@ -35,5 +35,12 @@
 
 <div class="jumbotron registerBanner text-center">
     <h2>Sign up for Nanny Sevices Here</h2>
-    <p><a href="~/Account/Register">Start Instantly</a></p>
+    @if (!User.Identities.Any(u => u.IsAuthenticated))
+        {
+            <p><a href="~/Account/Register">Start Instantly</a></p>
+        }
+    else
+        {
+            <p><a href="~/Account/ProfilePage">Start Instantly</a></p>
+        }
 </div>
