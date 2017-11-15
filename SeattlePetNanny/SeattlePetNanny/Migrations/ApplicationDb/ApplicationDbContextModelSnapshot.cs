@@ -135,8 +135,6 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
 
                     b.Property<int>("AccessFailedCount");
 
-                    b.Property<DateTime>("Birthday");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -144,10 +142,6 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -160,8 +154,6 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
                         .HasMaxLength(256);
 
                     b.Property<string>("PasswordHash");
-
-                    b.Property<string>("Phone");
 
                     b.Property<string>("PhoneNumber");
 
