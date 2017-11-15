@@ -15,10 +15,5 @@ namespace SeattlePetNanny.Controllers
             return View();
         }
 
-        [Authorize(Policy = "OwnerOnly")]
-        public IActionResult Test()
-        {
-            return View();
-        }
     }
 }
