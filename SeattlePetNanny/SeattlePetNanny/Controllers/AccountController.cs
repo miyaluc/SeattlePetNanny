@@ -50,7 +50,7 @@ namespace SeattlePetNanny.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = rvm.Email, Email = rvm.Email };
+                var user = new ApplicationUser { UserName = rvm.Email, Email = rvm.Email, Phone = rvm.Phone };
                 var result = await _userManager.CreateAsync(user, rvm.Password);
 
                 if (result.Succeeded)

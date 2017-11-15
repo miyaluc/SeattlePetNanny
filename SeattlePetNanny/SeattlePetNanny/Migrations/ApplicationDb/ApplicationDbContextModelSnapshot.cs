@@ -161,6 +161,8 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
 
                     b.Property<string>("PasswordHash");
 
+                    b.Property<string>("Phone");
+
                     b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("PhoneNumberConfirmed");
