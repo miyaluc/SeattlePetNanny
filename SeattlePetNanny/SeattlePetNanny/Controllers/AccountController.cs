@@ -91,6 +91,9 @@ namespace SeattlePetNanny.Controllers
             return View("Forbidden");
         }
 
+        //****$$$$$$$$$$#############@@@@@@@@@@@ <----
+        // WILL NEED TO ALSO GIVE PERMISSION TO ADMINISTRATOR
+        [Authorize(Roles = "OwnerOnly")]
         public IActionResult ProfilePage()
         {
             return View();
