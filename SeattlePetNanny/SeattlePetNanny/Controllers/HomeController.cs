@@ -1,13 +1,9 @@
-<<<<<<< HEAD
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-=======
-﻿using Microsoft.AspNetCore.Mvc;
->>>>>>> master
 
 namespace SeattlePetNanny.Controllers
 {
@@ -21,6 +17,16 @@ namespace SeattlePetNanny.Controllers
         }
 
         public IActionResult Rates()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult About()
         {
             return View();
         }
