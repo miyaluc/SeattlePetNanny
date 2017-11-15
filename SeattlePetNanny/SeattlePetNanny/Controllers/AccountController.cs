@@ -40,9 +40,8 @@ namespace SeattlePetNanny.Controllers
                 var result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, lvm.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    // ***************
-                    // REDIRECT TO THE USER'S PROFILE ON LOGIN SUCCESS
-                    return RedirectToAction("Index", "Home");
+                    
+                    return RedirectToAction("ProfilePage", "Account");
                 }
             }
 
