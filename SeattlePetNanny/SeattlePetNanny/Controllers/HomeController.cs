@@ -15,7 +15,6 @@ namespace SeattlePetNanny.Controllers
             return View();
         }
 
-        //[Authorize(Roles = "Owner")]
         [Authorize(Policy = "OwnerOnly")]
         public IActionResult Test()
         {

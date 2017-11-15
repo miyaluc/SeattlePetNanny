@@ -31,7 +31,6 @@ namespace SeattlePetNanny
             //options.AddPolicy("Owner", policy => policy.RequireRole("Owner")));
             services.AddAuthorization(options =>
             {
-                //options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("EmployeeNumber"));
                 options.AddPolicy("OwnerOnly", policy => policy.RequireClaim("OwnerOnly"));
             });
             // *************
