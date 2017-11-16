@@ -1,33 +1,53 @@
 ﻿@model SeattlePetNanny.Models.Owner
-@{ 
+@{
     Layout = "_Layout";
 }
-<div class="container">
-    <div class="row">
 
-<label asp-for="FirstName" class="control-label"></label>
-<label asp-for="LastName" class="control-label"></label>
-<label asp-for="Birthday" class="control-label"></label>
-<label asp-for="Address" class="control-label"></label>
-<label asp-for="Location" class="control-label"></label>
-
+<div class="jumbotron profileBanner text-center">
+    <div class="bannerText">
+        <a href="~/Home"><img class="proBanner" src="~/imgs/SPN LOGO .png" /></a>
+        <h4 class="greeting">Profile</h4>
     </div>
+</div>
+
+
+<div class="petInfo">
 
 </div>
 
-<style>
-    .proPic{
-        width: 200px;
-        height: 200px;
-        background-color:red;
-    }
-</style>
-<div class="container proPic">
-
-   <img class="col-sm-8"href="" />
-    <p class="col-sm-4">name</p>
-    <p class="col-sm-4">Location</p>
-    <p class="col-sm-4">Address</p>
 
 
+<div class="container col-md-12 userInfo">
+
+    <div class="container userDisplay">
+
+        <div class="proPic col-md-1"></div>
+
+        @Model.FirstName
+        <div class="container row userData col-md-6 col-md-offset-2">
+            <label asp-for="FirstName"> @Model.FirstName:</label>
+
+            <label asp-for="LastName">Last Name:</label>
+            <input class="form-control" asp-for="LastName" />
+            <span asp-validation-for="LastName"></span> <br />
+
+            <label asp-for="Birthday">Birthday:</label>
+            <input class="form-control" asp-for="Birthday" /> <br />
+
+            <label asp-for="Address">Street Address:</label>
+            <input class="form-control" asp-for="Address" placeholder="Address, Apt #, zip code" />
+            <span asp-validation-for="Address"></span> <br />
+
+            <label asp-for="Location" class="control-label"></label>
+            <input class="form-control" asp-for="Location" />
+            <span asp-validation-for="Location"></span> <br />
+
+            <div class=" btn addPet">
+            <button type="submit">Add New Pet</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
