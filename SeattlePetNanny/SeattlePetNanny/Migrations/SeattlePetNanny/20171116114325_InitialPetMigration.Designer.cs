@@ -8,12 +8,13 @@ using Microsoft.EntityFrameworkCore.Storage.Internal;
 using SeattlePetNanny.Data;
 using System;
 
-namespace SeattlePetNanny.Migrations
+namespace SeattlePetNanny.Migrations.SeattlePetNanny
 {
     [DbContext(typeof(SeattlePetNannyContext))]
-    partial class SeattlePetNannyContextModelSnapshot : ModelSnapshot
+    [Migration("20171116114325_InitialPetMigration")]
+    partial class InitialPetMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,11 +28,15 @@ namespace SeattlePetNanny.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("Location");
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Neighborhood");
 
                     b.Property<string>("Phone");
+
+                    b.Property<int>("UserID");
 
                     b.HasKey("AdminID");
 
@@ -45,17 +50,17 @@ namespace SeattlePetNanny.Migrations
 
                     b.Property<string>("Breed");
 
-                    b.Property<int?>("OwnerID");
+                    b.Property<int>("OwnerId");
 
-                    b.Property<int>("OwnerNumber");
+                    b.Property<string>("OwnerNotes");
 
                     b.Property<int>("Temperment");
 
-                    b.Property<int>("Weight");
+                    b.Property<string>("WorkerNotes");
 
                     b.HasKey("DogID");
 
-                    b.HasIndex("OwnerID");
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Dog");
                 });
@@ -87,9 +92,7 @@ namespace SeattlePetNanny.Migrations
                     b.Property<int>("ReportCardID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("DogID");
-
-                    b.Property<int>("DogNumber");
+                    b.Property<int>("DogID");
 
                     b.Property<string>("OwnerNotes");
 
@@ -111,11 +114,15 @@ namespace SeattlePetNanny.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("Location");
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Neighborhood");
 
                     b.Property<string>("Phone");
+
+                    b.Property<int>("UserID");
 
                     b.HasKey("WorkerID");
 
@@ -124,16 +131,18 @@ namespace SeattlePetNanny.Migrations
 
             modelBuilder.Entity("SeattlePetNanny.Models.Dog", b =>
                 {
-                    b.HasOne("SeattlePetNanny.Models.Owner")
+                    b.HasOne("SeattlePetNanny.Models.Owner", "Owner")
                         .WithMany("Dogs")
-                        .HasForeignKey("OwnerID");
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("SeattlePetNanny.Models.ReportCard", b =>
                 {
-                    b.HasOne("SeattlePetNanny.Models.Dog")
+                    b.HasOne("SeattlePetNanny.Models.Dog", "Dog")
                         .WithMany("ReportCards")
-                        .HasForeignKey("DogID");
+                        .HasForeignKey("DogID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

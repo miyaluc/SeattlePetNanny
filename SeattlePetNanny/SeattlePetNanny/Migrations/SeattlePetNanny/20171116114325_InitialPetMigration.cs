@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace SeattlePetNanny.Migrations
+namespace SeattlePetNanny.Migrations.SeattlePetNanny
 {
-    public partial class addedOwnerProperties : Migration
+    public partial class InitialPetMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,9 +16,11 @@ namespace SeattlePetNanny.Migrations
                     AdminID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Neighborhood = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,9 +52,11 @@ namespace SeattlePetNanny.Migrations
                     WorkerID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Neighborhood = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -66,20 +70,20 @@ namespace SeattlePetNanny.Migrations
                     DogID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Breed = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    OwnerID = table.Column<int>(type: "int", nullable: true),
-                    OwnerNumber = table.Column<int>(type: "int", nullable: false),
+                    OwnerId = table.Column<int>(type: "int", nullable: false),
+                    OwnerNotes = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Temperment = table.Column<int>(type: "int", nullable: false),
-                    Weight = table.Column<int>(type: "int", nullable: false)
+                    WorkerNotes = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Dog", x => x.DogID);
                     table.ForeignKey(
-                        name: "FK_Dog_Owner_OwnerID",
-                        column: x => x.OwnerID,
+                        name: "FK_Dog_Owner_OwnerId",
+                        column: x => x.OwnerId,
                         principalTable: "Owner",
                         principalColumn: "OwnerID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -88,8 +92,7 @@ namespace SeattlePetNanny.Migrations
                 {
                     ReportCardID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DogID = table.Column<int>(type: "int", nullable: true),
-                    DogNumber = table.Column<int>(type: "int", nullable: false),
+                    DogID = table.Column<int>(type: "int", nullable: false),
                     OwnerNotes = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Report = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WorkerNotes = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -102,13 +105,13 @@ namespace SeattlePetNanny.Migrations
                         column: x => x.DogID,
                         principalTable: "Dog",
                         principalColumn: "DogID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Dog_OwnerID",
+                name: "IX_Dog_OwnerId",
                 table: "Dog",
-                column: "OwnerID");
+                column: "OwnerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ReportCard_DogID",

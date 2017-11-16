@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.Internal;
 using SeattlePetNanny.Data;
 using System;
 
-namespace SeattlePetNanny.Migrations.ApplicationDb
+namespace SeattlePetNanny.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20171115023602_RemovedFields")]
-    partial class RemovedFields
+    [Migration("20171116113819_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -8,13 +8,12 @@ using Microsoft.EntityFrameworkCore.Storage.Internal;
 using SeattlePetNanny.Data;
 using System;
 
-namespace SeattlePetNanny.Migrations.ApplicationDb
+namespace SeattlePetNanny.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20171115022608_AddedIdentity")]
-    partial class AddedIdentity
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,10 +142,6 @@ namespace SeattlePetNanny.Migrations.ApplicationDb
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
 

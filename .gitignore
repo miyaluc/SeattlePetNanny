@@ -277,6 +277,10 @@ __pycache__/
 # tools/
 
 # End of https://www.gitignore.io/api/aspnetcore
-/SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jquery
+/SeattlePetNanny/SeattlePetNanny/wwwroot/lib
 /SeattlePetNanny/SeattlePetNanny/wwwroot/lib/bootstrap
 /SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jquery-ui
+/SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jquery/
+/SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jquery/jquery-validation
+/SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jquery/jquery-validation-unobtrusive
+
