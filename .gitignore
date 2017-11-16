@@ -277,6 +277,7 @@ __pycache__/
 # tools/
 
 # End of https://www.gitignore.io/api/aspnetcore
+appsettings.json
 /SeattlePetNanny/SeattlePetNanny/wwwroot/lib
 /SeattlePetNanny/SeattlePetNanny/wwwroot/lib/bootstrap
 /SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jquery/
