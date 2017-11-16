@@ -30,6 +30,7 @@ namespace SeattlePetNanny
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("OwnerOnly", policy => policy.RequireClaim("OwnerOnly"));
+
             });
 
             services.AddMvc();

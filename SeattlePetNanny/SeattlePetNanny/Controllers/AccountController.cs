@@ -48,7 +48,6 @@ namespace SeattlePetNanny.Controllers
                     return RedirectToAction("ProfilePage", "Account");
                 }
             }
-
             return View();
         }
 
@@ -111,6 +110,13 @@ namespace SeattlePetNanny.Controllers
             var user = GetCurrentUserAsync();
             var owner = await _context1.Owner.SingleOrDefaultAsync(m => m.UserID == user.Id);
             return View(owner);
+        }
+
+        // Add a Pet modal popup
+        public ActionResult ModalAction(int Id)
+        {
+            ViewBag.Id = Id;
+            return PartialView("ModalContent");
         }
 
         [Authorize]

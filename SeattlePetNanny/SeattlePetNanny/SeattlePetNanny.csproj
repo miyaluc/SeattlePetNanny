@@ -10,7 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Account\ModalPopUp.cshtml" />
     <Content Remove="Views\Home\Test.cshtml" />
+    <Content Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
