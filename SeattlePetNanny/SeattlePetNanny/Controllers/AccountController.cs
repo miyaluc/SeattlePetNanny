@@ -109,7 +109,7 @@ namespace SeattlePetNanny.Controllers
         public async Task<IActionResult> ProfilePage()
         {
             var user = GetCurrentUserAsync();
-            Owner owner = await _context1.Owner.SingleOrDefaultAsync(m => m.UserID == user.Id);
+            Owner owner = await _context1.Owner.FirstOrDefaultAsync(m => m.UserID == user.Id);
             return View(owner);
         }
 
