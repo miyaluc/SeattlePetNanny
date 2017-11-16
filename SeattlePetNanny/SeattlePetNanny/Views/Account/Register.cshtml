@@ -1,15 +1,15 @@
 ﻿@model SeattlePetNanny.Models.RegisterViewModel
 @{
     ViewData["Title"] = "Register";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "_Layout";
 }
 
 
 <div class="jumbotron signUpBanner text-center">
     <div class="bannerText">
-        <img class="registerBanner" src="~/imgs/SPN LOGO .png" />
-        <h4 class="greeting">Sign-Up Today!</h4>
-    </div>
+        <a href="~/Home"><img class="registerLogo" src="~/imgs/SPN LOGO .png" /></a>
+            <h4 class="greeting">Sign-Up Today!</h4>
+</div>
 </div>
 
 <div class="container registerForm">
@@ -54,48 +54,3 @@
 </div>
 
 @*<a asp-action="Index" asp-controller="Home">Return to Home Page.</a>*@
-
-<style>
-    .registerForm {
-        margin-top: 20px;
-        background-color: #422367;
-        color: white;
-
-        max-width: 500px;
-    }
-
-    .greeting {
-        text-align:center;
-        color: #422367;
-        margin-top: 20px; 
-        font-size: 3em;
-
-        min-width: 200px;
-    }
-    
-    .bannerText{
-        width: 100%;
-    }
-
-    .signUpBanner {
-        margin-top: 20px;
-
-        width: 100%;
-    }
-
-    .registerBanner {
-        width: 150px;
-        height: auto;
-        margin-bottom: 20px;
-
-        min-width: 200px;
-    }
-
-    .btn {
-        display: block;
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        color: #422367;
-    }
-</style>
