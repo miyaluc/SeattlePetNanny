@@ -1,6 +1,12 @@
-﻿@{ 
+﻿@model SeattlePetNanny.Models.Owner
+@{ 
     Layout = "_Layout";
 }
+<label asp-for="FirstName" class="control-label"></label>
+<label asp-for="LastName" class="control-label"></label>
+<label asp-for="Birthday" class="control-label"></label>
+<label asp-for="Address" class="control-label"></label>
+<label asp-for="Location" class="control-label"></label>
 
 <style>
     .proPic{
@@ -11,5 +17,6 @@
 </style>
 <div class="container proPic">
    <img href="" />
+    @*<label asp-for="Photo" class="control-label"></label>*@
 </div>
 You are signed in.

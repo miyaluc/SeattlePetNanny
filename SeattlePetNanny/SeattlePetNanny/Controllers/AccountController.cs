@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SeattlePetNanny.Data;
 using SeattlePetNanny.Models;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -22,6 +24,8 @@ namespace SeattlePetNanny.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+        // gets the current user
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         [AllowAnonymous]
         [HttpGet]
@@ -109,9 +113,11 @@ namespace SeattlePetNanny.Controllers
         //****$$$$$$$$$$#############@@@@@@@@@@@ <----
         // WILL NEED TO ALSO GIVE PERMISSION TO ADMINISTRATOR
         [Authorize(Roles = "OwnerOnly")]
-        public IActionResult ProfilePage()
+        public async Task<IActionResult> ProfilePage()
         {
-            return View();
+            var user = GetCurrentUserAsync();
+            var owner = await _context1.Owner.SingleOrDefaultAsync(m => m.UserID == user.Id);
+            return View(owner);
         }
 
         //[Authorize]
