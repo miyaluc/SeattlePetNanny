@@ -2,7 +2,7 @@
 @{ 
     Layout = "_Layout";
 }
-<div class="container">
+@*<div class="container">
     <div class="row">
 
 <label asp-for="FirstName" class="control-label"></label>
@@ -30,4 +30,12 @@
     <p class="col-sm-4">Address</p>
 
 
+</div>*@
+
+<a asp-action="Modal" asp-controller="Account" asp-route-id="1" data-target="#modal-container" data-toggle="modal">Add Pet</a>
+<div id="modal-container" class="modal fade hidden-print" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
 </div>
