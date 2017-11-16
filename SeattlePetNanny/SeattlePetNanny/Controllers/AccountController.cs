@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SeattlePetNanny.Data;
 using SeattlePetNanny.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -109,7 +110,7 @@ namespace SeattlePetNanny.Controllers
         public async Task<IActionResult> ProfilePage()
         {
             var user = GetCurrentUserAsync();
-            var owner = await _context1.Owner.SingleOrDefaultAsync(m => m.UserID == user.Id);
+            Owner owner = _context1.Owner.FirstOrDefault(m => m.UserID == user.Id);
             return View(owner);
         }
 
