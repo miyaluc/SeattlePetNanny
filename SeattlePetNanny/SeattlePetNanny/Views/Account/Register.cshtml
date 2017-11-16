@@ -18,40 +18,40 @@
         <div asp-validation-summary="All"></div>
 
         <label asp-for="Email">Email:</label>
-        <input class="form-control" asp-for="Email" />
-        <span asp-validation-for="Email"></span> <br /> <br />
+        <input class="form-control" asp-for="Email" placeholder="example@outlook.com"/>
+        <span asp-validation-for="Email"></span> <br /> 
 
         <label asp-for="PhoneNumber">Phone Number:</label>
-        <input class="form-control" asp-for="PhoneNumber" />
-        <span asp-validation-for="PhoneNumber"></span> <br /> <br />
+        <input class="form-control" asp-for="PhoneNumber" placeholder="(###) ###-####"/>
+        <span asp-validation-for="PhoneNumber"></span> <br /> 
 
         <label asp-for="FirstName">First Name:</label>
         <input class="form-control" asp-for="FirstName" />
-        <span asp-validation-for="FirstName"></span> <br /> <br />
+        <span asp-validation-for="FirstName"></span> <br /> 
 
         <label asp-for="LastName">Last Name:</label>
         <input class="form-control" asp-for="LastName" />
-        <span asp-validation-for="LastName"></span> <br /> <br />
+        <span asp-validation-for="LastName"></span> <br /> 
 
         <label asp-for="Birthday">Birthday:</label>
-        <input class="form-control" asp-for="Birthday" />
+        <input class="form-control" asp-for="Birthday" /> <br /> 
 
-        <label asp-for="Address">Address:</label>
-        <input class="form-control" asp-for="Address" />
-        <span asp-validation-for="Address"></span> <br /> <br />
+        <label asp-for="Address">Street Address:</label>
+        <input class="form-control" asp-for="Address" placeholder="Address, Apt #, zip code"/>
+        <span asp-validation-for="Address"></span> <br /> 
 
         <label asp-for="Password">Password:</label>
         <input class="form-control" asp-for="Password" />
-        <span asp-validation-for="Password"></span><br /> <br />
+        <span asp-validation-for="Password"></span><br /> 
 
         <label asp-for="ConfirmPassword">Confirm Password:</label>
         <input class="form-control" asp-for="ConfirmPassword" />
-        <span asp-validation-for="ConfirmPassword"></span><br /> <br />
+        <span asp-validation-for="ConfirmPassword"></span><br /> 
 
+        <button class="btn center-block" type="submit">Register</button>
 
     </form>
 </div>
-        <button class="btn center-block" type="submit">Register</button>
 
 @*<a asp-action="Index" asp-controller="Home">Return to Home Page.</a>*@
 
@@ -60,6 +60,8 @@
         margin-top: 20px;
         background-color: #422367;
         color: white;
+
+        max-width: 500px;
     }
 
     .greeting {
@@ -67,22 +69,33 @@
         color: #422367;
         margin-top: 20px; 
         font-size: 3em;
+
+        min-width: 200px;
+    }
+    
+    .bannerText{
+        width: 100%;
     }
 
     .signUpBanner {
         margin-top: 20px;
+
+        width: 100%;
     }
 
     .registerBanner {
         width: 150px;
         height: auto;
         margin-bottom: 20px;
+
+        min-width: 200px;
     }
 
     .btn {
-        display:block;
+        display: block;
         text-align: center;
         margin-top: 20px;
-
+        margin-bottom: 20px;
+        color: #422367;
     }
 </style>
