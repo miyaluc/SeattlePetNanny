@@ -10,10 +10,16 @@ namespace SeattlePetNanny.Models
     {
         [Key]
         public int AdminID { get; set; }
-        public string Name { get; set; }
-        public string Location { get; set; }
+        // secondary items needed, the rest of the Owner information is stored in AppplicationUser
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Neighborhood { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        //public blob Photo { get; set; }
+        // future implementation for photo storage
+        // public blob Photo { get; set; }
+
+        // the id of the corresponding user in the ApplicationUser database
+        public int UserID { get; set; }
     }
 }

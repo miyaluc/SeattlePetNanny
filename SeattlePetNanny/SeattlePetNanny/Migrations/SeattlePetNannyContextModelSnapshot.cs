@@ -27,11 +27,15 @@ namespace SeattlePetNanny.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("Location");
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Neighborhood");
 
                     b.Property<string>("Phone");
+
+                    b.Property<int>("UserID");
 
                     b.HasKey("AdminID");
 
@@ -47,11 +51,13 @@ namespace SeattlePetNanny.Migrations
 
                     b.Property<int?>("OwnerID");
 
+                    b.Property<string>("OwnerNotes");
+
                     b.Property<int>("OwnerNumber");
 
                     b.Property<int>("Temperment");
 
-                    b.Property<int>("Weight");
+                    b.Property<string>("WorkerNotes");
 
                     b.HasKey("DogID");
 
@@ -111,11 +117,15 @@ namespace SeattlePetNanny.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("Location");
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Neighborhood");
 
                     b.Property<string>("Phone");
+
+                    b.Property<int>("UserID");
 
                     b.HasKey("WorkerID");
 

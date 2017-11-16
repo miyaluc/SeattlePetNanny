@@ -98,7 +98,12 @@ namespace SeattlePetNanny.Controllers
             return View();
         }
 
-        public IActionResult AccessDenied()
+        public IActionResult ForbiddenClient()
+        {
+            return View("Forbidden");
+        }
+
+        public IActionResult ForbiddenWorker()
         {
             return View("Forbidden");
         }
@@ -114,7 +119,12 @@ namespace SeattlePetNanny.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        public async Task<IAct>
+        public async Task<IActionResult> ControlPanel()
+        {
+            var user = GetCurrentUserAsync();
+            var admin = await _context1.Admin.SingleOrDefaultAsync(m => m.UserID == user.Id);
+            return View(admin);
+        }
 
         [Authorize]
         public async Task<IActionResult> Logout()
