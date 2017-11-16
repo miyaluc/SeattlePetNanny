@@ -25,27 +25,6 @@
 
 </head>
 <body>
-    @*<div class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed"
-                        data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="~/Home"><img class="hmelogo" src="~/imgs/homelogo.png" /></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="~/Home/Rates">Rates</a>
-                    </li>
-                    <li class="active"><a href="~/Home/About">About</a>
-                    </li>
-                    <li class="active"><a href="~/Home/Contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>*@
     <div class="navbar navbar-default">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -54,13 +33,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 @if (User.Identities.Any(u => u.IsAuthenticated))
-
-            {
+                 {
                     <span class="icon-bar"></span>
-
-                }
+                 }
             </button>
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><img class="hmelogo" src="~/imgs/homelogo.png" width="25" /></a>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><img class="hmelogo" src="~/imgs/homelogo.png" width="25px;" /></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -70,18 +47,16 @@
                 @if (User.Identities.Any(u => u.IsAuthenticated))
                  {
                     <li><a asp-area="" asp-controller="Account" asp-action="ProfilePage">Profile</a></li>
-                }
-
+                 }
             </ul>
         </div>
     </div>
     <div>
         @if (!User.Identities.Any(u => u.IsAuthenticated))
-
-            {
+         {
             <span><a href="~/Account/Login"> Login </a> || <a href="~/Account/Register"> Register </a></span>
 
-        }
+         }
         else
         {
             <span>
@@ -89,15 +64,11 @@
                 u.HasClaim(c => c.Type == ClaimTypes.Name)).FindFirst(ClaimTypes.Name).Value
                 || Click <a href="~/Account/Logout"> here </a> to sign out.
             </span>
-
         }
-
     </div>
-
     <div>
         @RenderBody()
     </div>
-
     <footer class="footer">
         <div class="container">
             <ul class="panel-footer">
@@ -143,7 +114,6 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-
 </body>
 </html>
 

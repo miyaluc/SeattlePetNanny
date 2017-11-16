@@ -44,8 +44,7 @@ namespace SeattlePetNanny.Controllers
             {
                 var result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, lvm.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
-                {
-                    
+                {                 
                     return RedirectToAction("ProfilePage", "Account");
                 }
             }
@@ -110,7 +109,7 @@ namespace SeattlePetNanny.Controllers
         public async Task<IActionResult> ProfilePage()
         {
             var user = GetCurrentUserAsync();
-            Owner owner = _context1.Owner.FirstOrDefault(m => m.UserID == user.Id);
+            Owner owner = await _context1.Owner.SingleOrDefaultAsync(m => m.UserID == user.Id);
             return View(owner);
         }
 
