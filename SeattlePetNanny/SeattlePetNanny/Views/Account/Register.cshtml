@@ -4,53 +4,85 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form method="post">
 
-    <div asp-validation-summary="All"></div>
-    <h4>Create Your Account </h4>
+<div class="jumbotron signUpBanner text-center">
+    <div class="bannerText">
+        <img class="registerBanner" src="~/imgs/SPN LOGO .png" />
+        <h4 class="greeting">Sign-Up Today!</h4>
+    </div>
+</div>
 
-    <label asp-for="Email">Email:</label>
-    <input asp-for="Email" placeholder="example@outlook.com" />
-    <span asp-validation-for="Email"></span> <br /> <br />
+<div class="container registerForm">
+    <form method="post">
 
-    <label asp-for="PhoneNumber">Phone Number:</label>
-<<<<<<< HEAD
-    <input asp-for="PhoneNumber" placeholder="(###) ###-####"/>
-    <span asp-validation-for="PhoneNumber"></span> 
-    <br /> <br />
-=======
-    <input asp-for="PhoneNumber" />
-    <span asp-validation-for="PhoneNumber"></span><br />
-    &nbsp; &nbsp; &nbsp;Ex. (xxx) xxx-xxxx<br /> <br />
->>>>>>> master
+        <div asp-validation-summary="All"></div>
 
-    <label asp-for="FirstName">First Name:</label>
-    <input asp-for="FirstName" />
-    <span asp-validation-for="FirstName"></span> <br /> <br />
+        <label asp-for="Email">Email:</label>
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email"></span> <br /> <br />
 
-    <label asp-for="LastName">Last Name:</label>
-    <input asp-for="LastName" />
-    <span asp-validation-for="LastName"></span> <br /> <br />
+        <label asp-for="PhoneNumber">Phone Number:</label>
+        <input class="form-control" asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber"></span> <br /> <br />
 
-    <label asp-for="Birthday">Birthday:</label>
-    <input asp-for="Birthday" />
-    <span asp-validation-for="Birthday"></span> <br /> <br />
+        <label asp-for="FirstName">First Name:</label>
+        <input class="form-control" asp-for="FirstName" />
+        <span asp-validation-for="FirstName"></span> <br /> <br />
 
-    <label asp-for="Address">Street Address:</label>
-    <input asp-for="Address" placeholder="Address, Apt #, zip code"/>
-    <span asp-validation-for="Address"></span> <br /> <br />
+        <label asp-for="LastName">Last Name:</label>
+        <input class="form-control" asp-for="LastName" />
+        <span asp-validation-for="LastName"></span> <br /> <br />
 
-    <label asp-for="Password">Password:</label>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password"></span><br />
-    &nbsp; &nbsp; &nbsp;Requires Capital and lower case letters, number and special character<br /> <br />
+        <label asp-for="Birthday">Birthday:</label>
+        <input class="form-control" asp-for="Birthday" />
 
-    <label asp-for="ConfirmPassword">Confirm Password:</label>
-    <input asp-for="ConfirmPassword" />
-    <span asp-validation-for="ConfirmPassword"></span><br /> <br />
+        <label asp-for="Address">Address:</label>
+        <input class="form-control" asp-for="Address" />
+        <span asp-validation-for="Address"></span> <br /> <br />
 
-    <button type="submit">Register</button>
+        <label asp-for="Password">Password:</label>
+        <input class="form-control" asp-for="Password" />
+        <span asp-validation-for="Password"></span><br /> <br />
 
-</form>
+        <label asp-for="ConfirmPassword">Confirm Password:</label>
+        <input class="form-control" asp-for="ConfirmPassword" />
+        <span asp-validation-for="ConfirmPassword"></span><br /> <br />
 
-<a asp-action="Index" asp-controller="Home">Return to Home Page.</a>
+
+    </form>
+</div>
+        <button class="btn center-block" type="submit">Register</button>
+
+@*<a asp-action="Index" asp-controller="Home">Return to Home Page.</a>*@
+
+<style>
+    .registerForm {
+        margin-top: 20px;
+        background-color: #422367;
+        color: white;
+    }
+
+    .greeting {
+        text-align:center;
+        color: #422367;
+        margin-top: 20px; 
+        font-size: 3em;
+    }
+
+    .signUpBanner {
+        margin-top: 20px;
+    }
+
+    .registerBanner {
+        width: 150px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display:block;
+        text-align: center;
+        margin-top: 20px;
+
+    }
+</style>
