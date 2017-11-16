@@ -118,6 +118,7 @@ namespace SeattlePetNanny.Controllers
             return View(owner);
         }
 
+        // TODOADAM needs to be accesible by administrator only
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> ControlPanel()
         {
