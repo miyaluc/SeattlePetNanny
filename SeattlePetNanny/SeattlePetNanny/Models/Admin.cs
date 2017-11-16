@@ -14,8 +14,6 @@ namespace SeattlePetNanny.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Neighborhood { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
         // future implementation for photo storage
         // public blob Photo { get; set; }
 

@@ -14,6 +14,7 @@ namespace SeattlePetNanny.Models
         public string OwnerNotes { get; set; }
         public string WorkerNotes { get; set; }
 
-        public int DogNumber { get; set; }
+        public int DogID { get; set; }
+        public virtual Dog Dog { get; set; }
     }
 }

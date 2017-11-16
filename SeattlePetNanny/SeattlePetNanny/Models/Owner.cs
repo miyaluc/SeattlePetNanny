@@ -22,6 +22,6 @@ namespace SeattlePetNanny.Models
         // the id of the corresponding user in the ApplicationUser database
         public int UserID { get; set; }
         // list of the dogs attached to this user
-        public List<Dog> Dogs { get; set; }
+        public virtual ICollection<Dog> Dogs { get; set; }
     }
 }

@@ -16,8 +16,9 @@ namespace SeattlePetNanny.Models
         public string WorkerNotes { get; set; }
         //public blob Photo { get; set; }
 
-        public int OwnerNumber { get; set; }
+        public int OwnerId { get; set; }
+        public virtual Owner Owner { get; set; }
 
-        public List<ReportCard> ReportCards { get; set; }
+        public virtual ICollection<ReportCard> ReportCards { get; set; }
     }
 }
