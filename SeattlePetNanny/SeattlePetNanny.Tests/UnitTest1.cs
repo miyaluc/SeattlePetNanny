@@ -259,51 +259,382 @@ namespace SeattlePetNanny.Tests
 
         }
 
-        //[Fact]
-        //public void CanChangeView()
-        //{
-        //    var controller = new AddpetController();
-        //    // Arrange
-        //    AddpetController a = new AddpetController();
-        //    // Act
-        //    IActionResult result = a.Modal();
 
-        //    // Assert
-        //    Assert.IsType<ViewResult>(result);
 
-        //}
-
-        [Fact]
-        public void SuccessfullyAddFirstNameToDatabase()
-        {
-            //Arrange
-            var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
-            options.UseSqlServer("Server=tcp:seattlepetnanny.database.windows.net,1433;Initial Catalog=SeattlePetNannyDatabase;Persist Security Info=False;User ID=adamcamgeorge;Password=CassP@$$word123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
-
-            var context = new SeattlePetNannyContext(options.Options);
-            // may need to add all the properties to this table
-            context.Add(new Owner { FirstName = "Stacy" });
-            context.SaveChanges();
-            var name = context.Owner.FirstOrDefaultAsync(m => m.FirstName == "Stacy");
-
-            Assert.NotNull(name);
-        }
 
         [Fact]
         public void SuccessfullyAddLastNameToDatabase()
         {
             //Arrange
             var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
-            options.UseSqlServer("Server=tcp:seattlepetnanny.database.windows.net,1433;Initial Catalog=SeattlePetNannyDatabase;Persist Security Info=False;User ID=adamcamgeorge;Password=CassP@$$word123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+        
+
+        [Fact]
+        public void SuccessfullyAddAddressToDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
 
             var context = new SeattlePetNannyContext(options.Options);
             // may need to add all the properties to this table
-            context.Add(new Owner { LastName = "Yule" });
+            context.Add(new Owner { Address = "233 South Stree" });
             context.SaveChanges();
-            var name = context.Owner.FirstOrDefaultAsync(m => m.LastName == "Yule");
+            var name = context.Owner.FirstOrDefaultAsync(m => m.Address == "233 South Stree");
 
             Assert.NotNull(name);
         }
+        [Fact]
+        public void SuccessfullyAddLocationToDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new SeattlePetNannyContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new Owner { Location = "Kirkland" });
+            context.SaveChanges();
+            var name = context.Owner.FirstOrDefaultAsync(m => m.Location == "Kirkland");
+
+            Assert.NotNull(name);
+        }
+
+        [Fact]
+        public void SuccessfullyAddOwnerToDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new SeattlePetNannyContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new Owner { UserID = 4 });
+            context.SaveChanges();
+            var name = context.Owner.FirstOrDefaultAsync(m => m.UserID == 4);
+
+            Assert.NotNull(name);
+        }
+        [Fact]
+        public void SuccessfullyAddFirtNameToAdminDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new SeattlePetNannyContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new Admin { FirstName = "Chan" });
+            context.SaveChanges();
+            var name = context.Admin.FirstOrDefaultAsync(m => m.FirstName == "Chan");
+
+            Assert.NotNull(name);
+        }
+        [Fact]
+        public void SuccessfullyAddLastNameToAdminDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new SeattlePetNannyContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new Admin { LastName = "Pho" });
+            context.SaveChanges();
+            var name = context.Admin.FirstOrDefaultAsync(m => m.LastName == "Pho");
+
+            Assert.NotNull(name);
+        }
+        [Fact]
+        public void SuccessfullyAddNeighborhoodToAdminDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new SeattlePetNannyContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new Admin { Neighborhood = "Pho" });
+            context.SaveChanges();
+            var name = context.Admin.FirstOrDefaultAsync(m => m.Neighborhood == "Pho");
+
+            Assert.NotNull(name);
+        }
+        [Fact]
+        public void SuccessfullyAddUserIDToAdminDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new SeattlePetNannyContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new Admin { UserID = 33 });
+            context.SaveChanges();
+            var name = context.Admin.FirstOrDefaultAsync(m => m.UserID == 33);
+
+            Assert.NotNull(name);
+        }
+
+        [Fact]
+        public void SuccessfullyAddFirstNameToWorkerDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new SeattlePetNannyContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new Worker { FirstName = "John" });
+            context.SaveChanges();
+            var name = context.Worker.FirstOrDefaultAsync(m => m.FirstName == "John");
+
+            Assert.NotNull(name);
+        }
+        [Fact]
+        public void SuccessfullyAddLastNameToWorkerDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new SeattlePetNannyContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new Worker { LastName = "Doe" });
+            context.SaveChanges();
+            var name = context.Worker.FirstOrDefaultAsync(m => m.LastName == "Doe");
+
+            Assert.NotNull(name);
+        }
+        [Fact]
+        public void SuccessfullyAddNeighborhoodToWorkerDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new SeattlePetNannyContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new Worker { Neighborhood = "John" });
+            context.SaveChanges();
+            var name = context.Worker.FirstOrDefaultAsync(m => m.Neighborhood == "John");
+
+            Assert.NotNull(name);
+        }
+        [Fact]
+        public void SuccessfullyAddUserNameToApplicationUserDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new ApplicationDbContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new ApplicationUser { UserName = "John@john.com" });
+            context.SaveChanges();
+            var name = context.Users.FirstOrDefaultAsync(m => m.UserName == "John@john.com");
+
+            Assert.NotNull(name);
+        }
+        [Fact]
+        public void SuccessfullyAddEmailToApplicationUserDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new ApplicationDbContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new ApplicationUser { Email = "John@john.com" });
+            context.SaveChanges();
+            var name = context.Users.FirstOrDefaultAsync(m => m.Email == "John@john.com");
+
+            Assert.NotNull(name);
+        }
+        //[Fact]
+        //public void SuccessfullyAddAccessFailedCountToApplicationUserDatabase()
+        //{
+        //    //Arrange
+        //    var options = new DbContextOptionsBuilder<ApplicationDbContext>();
+        //    options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+        //    var context = new ApplicationDbContext(options.Options);
+        //    // may need to add all the properties to this table
+        //    context.Add(new  {  = 44 });
+        //    context.SaveChanges();
+        //    var name = context.Users.FirstOrDefaultAsync(m => m.AccessFailedCount == 44);
+
+        //    Assert.NotNull(name);
+        //}
+        [Fact]
+        public void SuccessfullyAddConcurrencyStampToApplicationUserDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new ApplicationDbContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new ApplicationUser { ConcurrencyStamp = "0b111" });
+            context.SaveChanges();
+            var name = context.Users.FirstOrDefaultAsync(m => m.ConcurrencyStamp == "0b111");
+
+            Assert.NotNull(name);
+        }
+        [Fact]
+        public void SuccessfullyAddNormalizedEmailToApplicationUserDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new ApplicationDbContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new ApplicationUser { NormalizedEmail = "JOHN@DOE.COM" });
+            context.SaveChanges();
+            var name = context.Users.FirstOrDefaultAsync(m => m.NormalizedEmail == "JOHN@DOE.COM");
+
+            Assert.NotNull(name);
+        }
+        [Fact]
+        public void SuccessfullyAddSecurityStampToApplicationUserDatabase()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>();
+            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var context = new ApplicationDbContext(options.Options);
+            // may need to add all the properties to this table
+            context.Add(new ApplicationUser { SecurityStamp = "af7325c5-e2c6-4f3a-91b4-9861f3b2ca38" });
+            context.SaveChanges();
+            var name = context.Users.FirstOrDefaultAsync(m => m.SecurityStamp == "af7325c5-e2c6-4f3a-91b4-9861f3b2ca38");
+
+            Assert.NotNull(name);
+        }
+        //[Fact]
+        //public void SuccessfullyAddReportToRepordCardDatabase()
+        //{
+        //    //Arrange
+        //    var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+        //    options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+        //    var context = new SeattlePetNannyContext(options.Options);
+        //    // may need to add all the properties to this table
+        //    context.Add(new ReportCard { Report = "Great things" });
+        //    context.SaveChanges();
+        //    var name = context.ReportCard.FirstOrDefaultAsync(m => m.Report == "Great Things");
+
+        //    Assert.NotNull(name);
+        //}
+        //[Fact]
+        //public void SuccessfullyAddNameToDogDatabase()
+        //{
+        //    //Arrange
+        //    var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+        //    options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+        //    var context = new SeattlePetNannyContext(options.Options);
+        //    // may need to add all the properties to this table
+        //    context.Add(new Dog { Name = "Fluffy" });
+        //    context.SaveChanges();
+        //    var name = context.Dog.FirstOrDefaultAsync(m => m.Name == "Fluffy");
+
+        //    Assert.NotNull(name);
+        //}
+        //[Fact]
+        //public void SuccessfullyAddBreedToDogDatabase()
+        //{
+        //    //Arrange
+        //    var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+        //    options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+        //    var context = new SeattlePetNannyContext(options.Options);
+        //    // may need to add all the properties to this table
+        //    context.Add(new Dog { Breed = "Doberman" });
+        //    context.SaveChanges();
+        //    var name = context.Dog.FirstOrDefaultAsync(m => m.Breed == "Doberman");
+
+        //    Assert.NotNull(name);
+        //}
+        //[Fact]
+        //public void SuccessfullyAddTempermentToDogDatabase()
+        //{
+        //    //Arrange
+        //    var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+        //    options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+        //    var context = new SeattlePetNannyContext(options.Options);
+        //    // may need to add all the properties to this table
+        //    context.Add(new Dog { Temperment = "Happy" });
+        //    context.SaveChanges();
+        //    var name = context.Dog.FirstOrDefaultAsync(m => m.Temperment == "Happy");
+
+        //    Assert.NotNull(name);
+        //}
+        //[Fact]
+        //public void SuccessfullyAddOwnerNotesToDogDatabase()
+        //{
+        //    //Arrange
+        //    var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+        //    options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+        //    var context = new SeattlePetNannyContext(options.Options);
+        //    // may need to add all the properties to this table
+        //    context.Add(new Dog { OwnerNotes = "Needs to pee." });
+        //    context.SaveChanges();
+        //    var name = context.Dog.FirstOrDefaultAsync(m => m.OwnerNotes == "Needs to pee.");
+
+        //    Assert.NotNull(name);
+        //}
+        //[Fact]
+        //public void SuccessfullyAddWorkerNotesToDogDatabase()
+        //{
+        //    //Arrange
+        //    var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+        //    options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+        //    var context = new SeattlePetNannyContext(options.Options);
+        //    // may need to add all the properties to this table
+        //    context.Add(new Dog { WorkerNotes = "Fluffy pooped." });
+        //    context.SaveChanges();
+        //    var name = context.Dog.FirstOrDefaultAsync(m => m.WorkerNotes == "Fluffy pooped.");
+
+        //    Assert.NotNull(name);
+        //}
+        //[Fact]
+        //public void SuccessfullyAddOwnerIDToDogDatabase()
+        //{
+        //    //Arrange
+        //    var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+        //    options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+        //    var context = new SeattlePetNannyContext(options.Options);
+        //    // may need to add all the properties to this table
+        //    context.Add(new Dog { OwnerId = 55 });
+        //    context.SaveChanges();
+        //    var name = context.Dog.FirstOrDefaultAsync(m => m.OwnerId == 55);
+
+        //    Assert.NotNull(name);
+        //}
+
+        //[Fact]
+        //public void SuccessfullyAddLastNameToDatabase()
+        //{
+        //    //Arrange
+        //    var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
+        //    options.UseSqlServer("Server=tcp:seattlepetnanny.database.windows.net,1433;Initial Catalog=SeattlePetNannyDatabase;Persist Security Info=False;User ID=adamcamgeorge;Password=CassP@$$word123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
+
+        //    var context = new SeattlePetNannyContext(options.Options);
+        //    // may need to add all the properties to this table
+        //    context.Add(new Owner { LastName = "Yule" });
+        //    context.SaveChanges();
+        //    var name = context.Owner.FirstOrDefaultAsync(m => m.LastName == "Yule");
+
+
+        //    Assert.NotNull(name);
+        //}
         // I think we need a fake repository to test this?
         //[Fact]
         //public void CanAddDog()
