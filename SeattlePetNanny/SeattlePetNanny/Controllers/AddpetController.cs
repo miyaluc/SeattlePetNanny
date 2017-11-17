@@ -16,15 +16,13 @@ namespace SeattlePetNanny.Controllers
         private readonly SeattlePetNannyContext _context1;
         private readonly UserManager<ApplicationUser> _userManager;
 
-
-        public AddpetController(SeattlePetNannyContext context1, ApplicationDbContext context2, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AddpetController(SeattlePetNannyContext context1, UserManager<ApplicationUser> userManager)
         {
             _context1 = context1;
             _userManager = userManager;
         }
         // gets the current user
         private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
-
 
         [Authorize(Roles = "OwnerOnly")]
         [HttpGet]
@@ -45,11 +43,13 @@ namespace SeattlePetNanny.Controllers
                 // get the id of the User I just added
                 //int userID = _userManager.GetUserIdAsync(user).Id;
 
-                var user = GetCurrentUserAsync();
-                var owner = await _context1.Owner.FirstOrDefaultAsync(m => m.UserID == user.Id);
+                //var user = GetCurrentUserAsync();
+                //var owner = await _context1.Owner.FirstOrDefaultAsync(m => m.UserID == user.Id);
+
+                /*OwnerId = owner.OwnerID,*/
 
                 // add the owner to the secondary database then save database
-                var userDog = new Dog { OwnerId = owner.OwnerID, Name = dvm.Name, Breed = dvm.Breed, Temperment = dvm.Temperment };
+                var userDog = new Dog { Name = dvm.Name, Breed = dvm.Breed, Temperment = dvm.Temperment };
                 _context1.Add(userDog);
                 //owner.Dogs.Add(userDog)
                 await _context1.SaveChangesAsync();
