@@ -4,14 +4,6 @@ body {
     color: #422367;
     font-family: 'Montserrat', sans-serif;
 }
-.nav .navbar-nav {
-    margin: 0 auto;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-right: 1em;
-    text-align: center;
-    padding-left: 16em;
-}
 
 .footer {
     margin-top: 150px;
@@ -83,10 +75,11 @@ body {
 
 .datePicker {
     max-width: 300px;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
+    margin-bottom:80px;
 }
 .ppic2 {
-    background-image: url(imgs/pexels-photo-179107.jpeg);
+    background-image: url(imgs/pexels-photo-351406.jpeg);
 }
 .proPic {
     width: 200px;
@@ -94,10 +87,12 @@ body {
     margin: 0 auto;
     background-image: url(imgs/pexels-photo-164446.jpeg);
     background-size: cover;
+
 }
 
 .dogData {
     text-align: left;
+    font-size: 14px;
 }
 
 .proBanner {
