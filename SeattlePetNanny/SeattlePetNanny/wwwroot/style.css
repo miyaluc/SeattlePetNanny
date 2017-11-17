@@ -73,6 +73,11 @@ body {
     margin-bottom: 50px;
 }
 
+.newRequest {
+    text-align: center;
+    color: #422367;
+}
+
 .addPet{
     max-width:15%;
 }
