@@ -1,0 +1,198 @@
+﻿/**************Layout******************/
+body {
+    background-color: white;
+    color: #422367;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer {
+    margin-top: 150px;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    line-height: 30px;
+    background-color: #f5f5f5;
+}
+
+.hmelogo {
+    width: 25px;
+    height: auto;
+}
+
+.active {
+    background-color: #422367;
+    color: white;
+}
+
+.active:hover {
+        background-color: red;
+        color: yellow;
+    }
+
+/****************Home Page*******************/
+.servicesRow {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.jumbotron {
+    margin-top: 20px;
+}
+
+.homeBanner {
+    background-color: #422367;
+    margin-bottom: 50px;
+}
+
+.hmebanner {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.bannerText {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.serviceContainer {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.serviceLine {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+
+/******************Profile page*****************/
+.homeBanner {
+    background-color: #422367;
+    margin-bottom: 50px;
+}
+
+.datePicker {
+    max-width: 300px;
+    /*margin: 0 auto;*/
+    margin-bottom:80px;
+}
+.ppic2 {
+    background-image: url(imgs/pexels-photo-351406.jpeg);
+}
+.proPic {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background-image: url(imgs/pexels-photo-164446.jpeg);
+    background-size: cover;
+
+}
+
+.dogData {
+    text-align: center;
+    font-size: 14px;
+}
+
+.proBanner {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    min-width: 200px;
+}
+
+.profileBanner {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.userInfo {
+    /*position: relative;*/
+    color: #422367;
+    max-width: 400px;
+    margin-bottom: 30px;
+    /*padding-bottom: 30px;*/
+}
+
+.greeting {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    color: #422367;
+    margin: 30px auto;
+}
+
+.userDisplay {
+    margin-bottom: 30px;
+}
+
+.userData {
+    margin-bottom: 30px;
+}
+
+.addPet {
+    margin-top: 10px;
+    margin: 0 auto;
+}
+
+/***************Register Form***************/
+.registerForm {
+    margin-top: 20px;
+    background-color: #422367;
+    color: white;
+    position: relative;
+    max-width: 700px;
+}
+
+.greeting {
+    text-align: center;
+    color: #422367;
+    margin-top: 20px;
+    font-size: 3em;
+    min-width: 200px;
+}
+
+.bannerText {
+    width: 100%;
+}
+
+.signUpBanner {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.registerLogo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    min-width: 200px;
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #422367;
+}
+/**************Rates***************/
+
+.ratesContainer {
+    background-color: #422367;
+    color: white;
+    line-height: 25px;
+}
+
+.serviceTypes {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
+
+/***********About*************/
+
+.aboutText {
+    background-color: white;
+    color: #422367;
+    font-size: 25px;
+    line-height: 30px;
+}
