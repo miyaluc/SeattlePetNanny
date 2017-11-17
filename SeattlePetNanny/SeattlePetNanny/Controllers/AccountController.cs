@@ -66,8 +66,7 @@ namespace SeattlePetNanny.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = rvm.Email, Email = rvm.Email, PhoneNumber = rvm.PhoneNumber };
-                var result = await _userManager.CreateAsync(user, rvm.Password);
-                
+                var result = await _userManager.CreateAsync(user, rvm.Password);               
 
                 if (result.Succeeded)
                 {
@@ -112,8 +111,6 @@ namespace SeattlePetNanny.Controllers
             Owner owner = await _context1.Owner.FirstOrDefaultAsync(m => m.UserID == user.Id);
             return View(owner);
         }
-
-        
 
         [Authorize]
         public async Task<IActionResult> Logout()
