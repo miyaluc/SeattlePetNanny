@@ -259,19 +259,19 @@ namespace SeattlePetNanny.Tests
 
         }
 
-        //[Fact]
-        //public void CanChangeView()
-        //{
-        //    var controller = new AddpetController();
-        //    // Arrange
-        //    AddpetController a = new AddpetController();
-        //    // Act
-        //    IActionResult result = a.Modal();
+        [Fact]
+        public void DoesReturnView()
+        {
+            var controller = new HomeController();
+            // Arrange
+            HomeController a = new HomeController();
+            // Act
+            IActionResult result = a.About();
 
-        //    // Assert
-        //    Assert.IsType<ViewResult>(result);
+            // Assert
+            Assert.IsType<ViewResult>(result);
 
-        //}
+        }
 
         [Fact]
         public void SuccessfullyAddFirstNameToDatabase()
