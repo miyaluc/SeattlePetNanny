@@ -17,39 +17,20 @@
 
 
 
-<div class="container col-md-12 userInfo">
+<div class="container userInfo">
 
-    <div class="container userDisplay">
+    <div class="userDisplay">
 
-        <div class="proPic col-md-1"></div>
+        <div class="proPic"></div>
 
-        @Model.FirstName
-        <div class="container row userData col-md-6 col-md-offset-2">
-            <label asp-for="FirstName"> @Model.FirstName:</label>
-
-            <label asp-for="LastName">Last Name:</label>
-            <input class="form-control" asp-for="LastName" />
-            <span asp-validation-for="LastName"></span> <br />
-
-
+        @*@Model.FirstName*@ 
+</div>
 </div>
 
-<a asp-action="Modal" asp-controller="Account" asp-route-id="1" data-target="#modal-container" data-toggle="modal">Add Pet</a>
+<a class="btn" asp-action="Modal" asp-controller="Account" asp-route-id="1" data-target="#modal-container" data-toggle="modal">Add Pet</a>
 <div id="modal-container" class="modal fade hidden-print" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-
-            <label asp-for="Birthday">Birthday:</label>
-            <input class="form-control" asp-for="Birthday" /> <br />
-
-            <label asp-for="Address">Street Address:</label>
-            <input class="form-control" asp-for="Address" placeholder="Address, Apt #, zip code" />
-            <span asp-validation-for="Address"></span> <br />
-
-            <label asp-for="Location" class="control-label"></label>
-            <input class="form-control" asp-for="Location" />
-            <span asp-validation-for="Location"></span> <br />
-
             <div class=" btn addPet">
             <button type="submit">Add New Pet</button>
             </div>
