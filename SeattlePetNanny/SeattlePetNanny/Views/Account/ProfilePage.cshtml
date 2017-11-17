@@ -11,6 +11,8 @@
 </div>
 
 
+<a href="~/Addpet/Modal"> Add Pet </a>
+
 <div class="petInfo">
 
 </div>
@@ -19,24 +21,15 @@
 
 <div class="container userInfo">
 
-    <div class="userDisplay">
+    <div class="container userDisplay">
 
-        <div class="proPic"></div>
+        <div class="proPic col-md-1"></div>
 
-        @*@Model.FirstName*@ 
-</div>
-</div>
+        @*@Model.FirstName*@
+        <div class="container row userData col-md-6 col-md-offset-2">
 
-<a class="btn" asp-action="Modal" asp-controller="Account" asp-route-id="1" data-target="#modal-container" data-toggle="modal">Add Pet</a>
-<div id="modal-container" class="modal fade hidden-print" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class=" btn addPet">
-            <button type="submit">Add New Pet</button>
-            </div>
         </div>
     </div>
 </div>
-
 
 
