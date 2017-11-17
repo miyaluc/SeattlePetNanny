@@ -12,6 +12,7 @@ namespace SeattlePetNanny.Models
         public int DogID { get; set; }
         public string Breed { get; set; }
         public string Name { get; set; }
+
         public string Temperment { get; set; }
         public string OwnerNotes { get; set; }
         public string WorkerNotes { get; set; }
