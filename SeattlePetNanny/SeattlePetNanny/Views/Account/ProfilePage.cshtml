@@ -1,4 +1,4 @@
-﻿@model SeattlePetNanny.Models.Owner
+﻿@model SeattlePetNanny.Models.Dog
 @{
     Layout = "_Layout";
 }
@@ -11,25 +11,42 @@
 </div>
 
 
-<a href="~/Addpet/Modal"> Add Pet </a>
 
 <div class="petInfo">
 
 </div>
 
 
+<div>
 
-<div class="container userInfo">
+    <div class="container proPic"></div>
+    <div class="dogData">
+        <h2>Name: <strong>Russ</strong></h2>
+        <h2>Breed: <strong>Bulldog</strong></h2>
+        <h2>Temperment: <strong>Calm</strong></h2>
+        <h2><strong>Schedule A Service:</strong></h2>
+        <input class="form-control datePicker" id="date" type="date">
 
-    <div class="container userDisplay">
-
-        <div class="proPic col-md-1"></div>
-
-        @*@Model.FirstName*@
-        <div class="container row userData col-md-6 col-md-offset-2">
+        <div class="container proPic ppic2"></div>
+        <div class="dogData">
+            <h2>Name: <strong>Greg</strong></h2>
+            <h2>Breed: <strong>Bulldog</strong></h2>
+            <h2>Temperment: <strong>Calm</strong></h2>
+            <h2><strong>Schedule A Service:</strong></h2>
+            <input class="form-control datePicker" id="date" type="date">
 
         </div>
     </div>
+
+    <div>
+        <button class="btn addPet" href="~/Addpet/modal"> Add Pet </button>
+    </div>
+
+    <
 </div>
+
+@*@Model.Name
+    @Model.Breed
+    @Model.Temperment*@
 
 

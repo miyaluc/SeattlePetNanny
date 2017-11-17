@@ -4,6 +4,14 @@ body {
     color: #422367;
     font-family: 'Montserrat', sans-serif;
 }
+.nav .navbar-nav {
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 1em;
+    text-align: center;
+    padding-left: 16em;
+}
 
 .footer {
     margin-top: 150px;
@@ -24,7 +32,7 @@ body {
     color: white;
 }
 
-    .active:hover {
+.active:hover {
         background-color: red;
         color: yellow;
     }
@@ -73,12 +81,23 @@ body {
     margin-bottom: 50px;
 }
 
+.datePicker {
+    max-width: 300px;
+    margin: 0 auto;
+}
+.ppic2 {
+    background-image: url(imgs/pexels-photo-179107.jpeg);
+}
 .proPic {
     width: 200px;
     height: 200px;
-    background-color: red;
     margin: 0 auto;
+    background-image: url(imgs/pexels-photo-164446.jpeg);
+    background-size: cover;
+}
 
+.dogData {
+    text-align: left;
 }
 
 .proBanner {
@@ -108,12 +127,17 @@ body {
     margin: 30px auto;
 }
 
-.userDisplay{
-margin-bottom: 30px;
+.userDisplay {
+    margin-bottom: 30px;
 }
 
-.userData{
+.userData {
     margin-bottom: 30px;
+}
+
+.addPet {
+    margin-top: 10px;
+    margin: 0 auto;
 }
 
 /***************Register Form***************/
@@ -164,9 +188,9 @@ margin-bottom: 30px;
     line-height: 25px;
 }
 
-.serviceTypes{
+.serviceTypes {
     font-family: 'Playfair Display', serif;
-    text-align:center;
+    text-align: center;
 }
 
 /***********About*************/
