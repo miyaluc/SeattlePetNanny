@@ -113,38 +113,7 @@ namespace SeattlePetNanny.Controllers
             return View(owner);
         }
 
-        [Authorize(Roles = "OwnerOnly")]
-        [HttpGet]
-        public IActionResult Modal()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "OwnerOnly")]
-        [HttpPost]
-        public async Task<IActionResult> ModalContent(DogViewModel dvm)
-        {
-            //var user = new ApplicationUser { UserName = rvm.Email, Email = rvm.Email, PhoneNumber = rvm.PhoneNumber };
-
-            if (ModelState.IsValid)
-            {
-                // add info to secondary table if things are added successfully to the main user table
-                // get the id of the User I just added
-                //int userID = _userManager.GetUserIdAsync(user).Id;
-
-                var user = GetCurrentUserAsync();
-                var owner = await _context1.Owner.SingleOrDefaultAsync(m => m.UserID == user.Id);
-
-                var userDog = new Dog { OwnerId = owner.OwnerID, /*Name = dvm.Name,*/ Breed = dvm.Breed, Temperment = dvm.Temperment };
-
-                // add the owner to the secondary database then save database
-                owner.Dogs.Add(userDog);
-                await _context1.SaveChangesAsync();
-
-                return RedirectToAction("ProfilePage", "Account");
-            }
-            return View();
-        }
+        
 
         [Authorize]
         public async Task<IActionResult> Logout()
