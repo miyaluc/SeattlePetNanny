@@ -26,12 +26,17 @@ namespace SeattlePetNanny.Controllers
             _signInManager = signInManager;
         }
         // gets the current user
-        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+        private Task<ApplicationUser> GetCurrentUserAsync()
+        {
+            //_userManager.FindByIdAsync();
+            return _userManager.GetUserAsync(HttpContext.User);
+            //return this._userManager.FindByNameAsync(User.Identity.Name);
+        }
 
         [AllowAnonymous]
         [HttpGet]
         public IActionResult Login()
-        {
+        { 
             return View();
 
         }
@@ -74,7 +79,7 @@ namespace SeattlePetNanny.Controllers
                     // add info to secondary table if things are added successfully to the main user table
 
                     // get the id of the User I just added
-                    int userID =_userManager.GetUserIdAsync(user).Id;
+                    string userID = await _userManager.GetUserIdAsync(user);
                     //int userID = _context2.Users.SingleOrDefaultAsync(u => u.UserID == id);
 
                     // create an owner object using the secodary info and the ID of the user I just added.
@@ -108,8 +113,8 @@ namespace SeattlePetNanny.Controllers
         [Authorize(Roles = "OwnerOnly")]
         public async Task<IActionResult> ProfilePage()
         {
-            var user = GetCurrentUserAsync();
-            Owner owner = await _context1.Owner.FirstOrDefaultAsync(m => m.UserID == user.Id);
+            var user = _userManager.GetUserId(User);
+            Owner owner = await _context1.Owner.FirstOrDefaultAsync(m => m.UserID == user);
             return View(owner);
         }
 

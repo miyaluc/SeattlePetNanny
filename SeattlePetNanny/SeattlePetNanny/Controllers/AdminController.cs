@@ -74,7 +74,7 @@ namespace SeattlePetNanny.Controllers
                     // add info to secondary table if things are added successfully to the main user table
 
                     // get the id of the User I just added
-                    int userID = _userManager.GetUserIdAsync(user).Id;
+                    string userID = await _userManager.GetUserIdAsync(user);
                     //int userID = _context2.Users.SingleOrDefaultAsync(u => u.UserID == id);
 
                     // create an owner object using the secodary info and the ID of the user I just added.
@@ -110,15 +110,15 @@ namespace SeattlePetNanny.Controllers
 
         //****$$$$$$$$$$#############@@@@@@@@@@@ <----
         // WILL NEED TO ALSO GIVE PERMISSION TO ADMINISTRATOR
-        [Authorize(Roles = "OwnerOnly")]
-        public async Task<IActionResult> ProfilePage()
-        {
-            var user = GetCurrentUserAsync();
-            var owner = await _context1.Owner.SingleOrDefaultAsync(m => m.UserID == user.Id);
-            return View(owner);
-        }
+        //[Authorize(Roles = "OwnerOnly")]
+        //public async Task<IActionResult> ProfilePage()
+        //{
+        //    var user = GetCurrentUserAsync();
+        //    var owner = await _context1.Owner.SingleOrDefaultAsync(m => m.UserID == user.Id);
+        //    return View(owner);
+        //}
 
-        // TODOADAM needs to be accesible by administrator only
+        // TODO needs to be accesible by administrator only
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> ControlPanel()
         {

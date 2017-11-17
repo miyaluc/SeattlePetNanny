@@ -45,8 +45,8 @@ namespace SeattlePetNanny.Controllers
                 // get the id of the User I just added
                 //int userID = _userManager.GetUserIdAsync(user).Id;
 
-                var user = GetCurrentUserAsync();
-                var owner = await _context1.Owner.FirstOrDefaultAsync(m => m.UserID == user.Id);
+                var user = _userManager.GetUserId(User);
+                var owner = await _context1.Owner.FirstOrDefaultAsync(m => m.UserID == user);
 
                 // add the owner to the secondary database then save database
                 var userDog = new Dog { OwnerId = owner.OwnerID, Name = dvm.Name, Breed = dvm.Breed, Temperment = dvm.Temperment };

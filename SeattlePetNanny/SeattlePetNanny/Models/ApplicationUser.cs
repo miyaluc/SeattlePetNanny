@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace SeattlePetNanny.Models
 {
+    // we are only using built in properties
     public class ApplicationUser : IdentityUser
     {
-        //[Display(Name = "First Name")]
-        //public string FirstName { get; set; }
-        //[Display(Name = "Last Name")]
-        //public string LastName { get; set; }
     }
 }

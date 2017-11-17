@@ -20,7 +20,7 @@ namespace SeattlePetNanny.Models
         // public blob Photo { get; set; }
 
         // the id of the corresponding user in the ApplicationUser database
-        public int UserID { get; set; }
+        public string UserID { get; set; }
         // list of the dogs attached to this user
         public virtual ICollection<Dog> Dogs { get; set; }
     }
