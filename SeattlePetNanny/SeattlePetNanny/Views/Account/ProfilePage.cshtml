@@ -24,6 +24,7 @@
         <div class="row">
             <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h1 class="gallery-title">Pets</h1>
+                <hr />
             </div>
             <br />
             <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe dogData">
@@ -31,6 +32,7 @@
                 <h4>Name: <strong>Russ</strong></h4>
                 <h4>Breed: <strong>German Shepard</strong></h4>
                 <h4>Temperament: <strong>Active</strong></h4>
+
                 <h4><strong>Schedule Service:</strong></h4>
                 <input class="form-control datePicker" id="date" type="date">
             </div>
@@ -39,7 +41,8 @@
                 <h4>Name: <strong>Ela</strong></h4>
                 <h4>Breed: <strong>Rock Wilder</strong></h4>
                 <h4>Temperament: <strong>Aggressive</strong></h4>
-                <h4><strong>Schedule Service:</strong></h4>
+
+                <h4><strong>Schedule A Service:</strong></h4>
                 <input class="form-control datePicker" id="date" type="date">
             </div>
             <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe dogData">
@@ -47,7 +50,8 @@
                 <h4>Name: <strong>Elroy</strong></h4>
                 <h4>Breed: <strong>Golden Retriever</strong></h4>
                 <h4>Temperament: <strong>Active</strong></h4>
-                <h4><strong>Schedule Service:</strong></h4>
+
+                <h4><strong>Schedule A Service:</strong></h4>
                 <input class="form-control datePicker" id="date" type="date">
             </div>
         </div>
@@ -79,15 +83,60 @@
 </div>
 
 <div>
-    <button class="btn addPet" href="~/Addpet/modal"> Add Pet </button>
+    <a href="~/Addpet/Modal" class="btn btn-default  addPet">Add Pet</a>
+</div>
+<br />
+<hr />
+    <div class="container orderForm">
+<form>
+
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Request A Service</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label orderForm" for="nama">Number of Pets:</label>
+                <div class="">
+                    <input id="petCount" type="text" placeholder="# of pets needing service" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Select Basic -->
+            <div class="form-group">
+                <label class="control-label orderForm" for="matkul">Type of service</label>
+                <div class="">
+                    <select id="matkul" name="matkul" class="form-control">
+                        <option value="1">30min walk</option>
+                        <option value="2">45min walk</option>
+                        <option value="3">Small Animal Care</option>
+                        <option value="4">Puppy Care</option>
+                        <option value="5">Overnight Care</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label orderForm" for="matkul">Time Block</label>
+                <div class="">
+                    <select id="matkul" name="matkul" class="form-control">
+                        <option value="1">Morning (7:00am - 10:30am)</option>
+                        <option value="2">Noon (10:31am - 1:30pm)</option>
+                        <option value="3">Afternoon (1:31pm - 4:30pm)</option>
+                        <option value="4">Evening (4:31pm-7:00pm)</option>
+                        <option value="5">Overnight Care</option>
+
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+</form>
 </div>
 
 <div>
-    <button class="btn addPet" href="~/Addpet/modal"> Schedule Service </button>
+
+    <a href="" class="btn btn-default  addPet">Schedule A Service</a>
 </div>
 
-    <
-</div>
 
 @*@Model.Name
     @Model.Breed

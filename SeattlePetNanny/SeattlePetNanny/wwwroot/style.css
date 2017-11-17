@@ -73,6 +73,13 @@ body {
     margin-bottom: 50px;
 }
 
+.addPet{
+    max-width:15%;
+}
+.orderForm {
+    max-width:45%;
+
+}
 .datePicker {
     max-width: 300px;
     /*margin: 0 auto;*/
