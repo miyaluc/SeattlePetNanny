@@ -11,7 +11,6 @@ namespace SeattlePetNanny.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-		//[Required]
         [Display(Order = 9, Name = "Phone")]
         public string PhoneNumber { get; set; }
 
