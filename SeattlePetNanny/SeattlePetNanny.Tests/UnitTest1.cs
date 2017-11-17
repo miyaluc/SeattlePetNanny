@@ -268,6 +268,7 @@ namespace SeattlePetNanny.Tests
             //Arrange
             var options = new DbContextOptionsBuilder<SeattlePetNannyContext>();
             options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SeattlePetNannyContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+        }
 
         
 
