@@ -34,6 +34,12 @@ wwwroot/lib/bootstrap/
 *wwwroot/lib/bootstrap/
 wwwroot/lib/jquery/
 *wwwroot/lib/jquery/
+wwwroot/lib/jquery/jquery-validation
+wwwroot/lib/jquery/jquery-validation-unobtrusive
+wwwroot/lib/jquery/jquery-ui
+*wwwroot/lib/jquery/jquery-validation
+*wwwroot/lib/jquery/jquery-validation-unobtrusive
+*wwwroot/lib/jquery/jquery-ui
 
 
 # MSTest test Results
@@ -283,4 +289,5 @@ appsettings.json
 /SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jquery/
 /SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jquery/jquery-validation
 /SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jquery/jquery-validation-unobtrusive
-SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jQuery/README.md
+/SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jquery/jquery-ui
+/SeattlePetNanny/SeattlePetNanny/wwwroot/lib/jQuery/README.md

@@ -1,0 +1,57 @@
+﻿@model SeattlePetNanny.Models.DogViewModel
+@{
+    ViewData["Title"] = "Modal";
+}
+<script>
+    $(function () {
+        // when the modal is closed
+        $('#modal-container').on('hidden.bs.modal', function () {
+            // remove the bs.modal data attribute from it
+            $(this).removeData('bs.modal');
+            // and empty the modal-content element
+            $('#modal-container .modal-content').empty();
+        });
+    });
+</script>
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Seattle Pet Nanny</h4>
+</div>
+<div class="modal-body">
+    <div class="form-horizontal">
+        <h3>Add a Pet</h3>
+
+        <div class="container petForm">
+            <form method="post">
+                <div asp-validation-summary="All"></div>
+
+                <label asp-for="Name">Pet Name:</label>
+                <input class="form-control" asp-for="Name" />
+                <span asp-validation-for="Name"></span> <br />
+
+                <label asp-for="Breed">Breed:</label>
+                <input class="form-control" asp-for="Breed" />
+                <span asp-validation-for="Breed"></span> <br />
+
+                <label asp-for="Temperment">Temperment:</label>
+                <input class="form-control" asp-for="Temperment" />
+                <span asp-validation-for="Temperment"></span> <br />
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Don't Add</button>
+                    <button type="submit" class="btn btn-success" data-dismiss="modal">Add</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .petForm {
+        max-width: 90%;
+    }
+</style>
