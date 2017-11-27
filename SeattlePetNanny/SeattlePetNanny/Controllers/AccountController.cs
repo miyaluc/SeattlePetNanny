@@ -18,6 +18,7 @@ namespace SeattlePetNanny.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
+        // dependency injection for database contexts and a couple identity managers
         public AccountController(SeattlePetNannyContext context1, ApplicationDbContext context2, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _context1 = context1;
@@ -25,9 +26,11 @@ namespace SeattlePetNanny.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
         // gets the current user
         private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
+        // the get for the login page, where we take in the information
         [AllowAnonymous]
         [HttpGet]
         public IActionResult Login()
@@ -36,12 +39,14 @@ namespace SeattlePetNanny.Controllers
 
         }
 
+        // the post where the login information is checked against the database
         [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel lvm)
         {
             if (ModelState.IsValid)
             {
+                // if the login is sucessful redirect to the profile page
                 var result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, lvm.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {                 
@@ -97,6 +102,7 @@ namespace SeattlePetNanny.Controllers
             return View();
         }
 
+        // access denied requests reroute here
         public IActionResult AccessDenied()
         {
             return View("Forbidden");
@@ -104,6 +110,7 @@ namespace SeattlePetNanny.Controllers
 
         //****$$$$$$$$$$#############@@@@@@@@@@@ <----
         // WILL NEED TO ALSO GIVE PERMISSION TO ADMINISTRATOR
+        // This needs additional authorization so that it won't error out when a user logs in on Azure
         [Authorize(Roles = "OwnerOnly")]
         public async Task<IActionResult> ProfilePage()
         {
@@ -112,6 +119,7 @@ namespace SeattlePetNanny.Controllers
             return View(owner);
         }
 
+        // Logout action
         [Authorize]
         public async Task<IActionResult> Logout()
         {
